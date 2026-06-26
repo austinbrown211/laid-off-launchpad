@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(git -C /Users/Austin/Desktop/laid-off-launchpad add -A)",
-      "Bash(git -C /Users/Austin/Desktop/laid-off-launchpad commit -m \"move files to root\")",
-      "Bash(git -C /Users/Austin/Desktop/laid-off-launchpad push)"
-    ]
-  }
-}
