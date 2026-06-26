@@ -7,7 +7,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
-  <script src="assets/image-slot.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -77,10 +76,9 @@
     .story-copy p strong { font-weight: 700; color: var(--fg-ink); }
     .story-aside { align-self: start; }
     .story-photo {
-      width: 100%; height: auto; aspect-ratio: 2331 / 3164;
-      border-radius: var(--r-lg); overflow: hidden;
+      display: block; width: 100%; height: auto; aspect-ratio: 2331 / 3164;
+      border-radius: var(--r-lg); overflow: hidden; object-fit: cover; object-position: center top;
       background: var(--bg-surface-sunk); box-shadow: var(--shadow-lg);
-      --placeholder-fg: var(--c-warm-500);
     }
     .story-copy p.story-sign {
       font-family: var(--font-display); font-weight: 300;
@@ -169,7 +167,7 @@
   <!-- ===== Nav ===== -->
   <nav class="nav" aria-label="Primary">
     <a href="index.html" aria-label="Laid Off Launchpad home">
-      <img class="nav-logo" src="assets/logo-cream-brush.png" alt="Laid Off Launchpad"
+      <img class="nav-logo" src="./images/LOL%20Logo_500px_Transparent.png" alt="Laid Off Launchpad"
            onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')">
       <span class="nav-logo-text" hidden>Laid Off Launchpad</span>
     </a>
@@ -201,14 +199,10 @@
         <p class="story-sign">&mdash; Austin</p>
       </div>
       <aside class="story-aside">
-        <image-slot
+        <img
           class="story-photo"
-          id="austin-about-photo"
-          shape="rect"
-          fit="cover"
-          src="assets/austin-about.jpg"
-          placeholder="Warm, natural-light photo of Austin">
-        </image-slot>
+          src="./images/IMG_8157.jpeg"
+          alt="Austin Brown, founder of Laid Off Launchpad">
       </aside>
     </div>
 
@@ -263,7 +257,7 @@
   <footer class="footer">
     <div class="footer-main">
       <div class="f-brand">
-        <img class="f-logo" src="assets/logo-cream-brush-cropped.png" alt="Laid Off Launchpad">
+        <img class="f-logo" src="./images/LOL%20Logo_500px_Transparent.png" alt="Laid Off Launchpad">
         <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
         <a class="f-social" href="#" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path></svg>
