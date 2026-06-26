@@ -1,0 +1,1026 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — Land Your Next Job With a Proven System</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
+
+    /* ============ Shared buttons ============ */
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14.5px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      padding: 17px 32px; cursor: pointer; white-space: nowrap; text-decoration: none;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out),
+                  transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-sm { font-size: 13px; letter-spacing: 0.14em; padding: 11px 22px; }
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14.5px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: transparent;
+      border: 1.5px solid rgba(252,250,240,0.42); border-radius: var(--r-pill);
+      padding: 17px 32px; cursor: pointer; white-space: nowrap; text-decoration: none;
+      transition: border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+    .btn-ghost:hover { border-color: rgba(252,250,240,0.8); background: rgba(252,250,240,0.08); }
+    .btn-ghost:active { transform: translateY(1px); }
+
+    /* ============ Nav ============ */
+    .nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px clamp(28px, 5vw, 72px);
+    }
+    .nav-logo { height: 128px; width: auto; display: block; margin-left: -12px; }
+    .nav-right { display: flex; align-items: center; gap: clamp(22px, 3vw, 40px); }
+    .nav-links { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 38px); }
+    .nav-links a {
+      font-family: var(--font-sans); font-weight: 500; font-size: 15px;
+      color: rgba(252,250,240,0.82); text-decoration: none;
+      padding-bottom: 3px; border-bottom: 1.5px solid transparent;
+      transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+    .nav-links a:hover { color: var(--c-floral-white); border-bottom-color: var(--c-sinopia); }
+
+    /* ============ Hero ============ */
+    .hero {
+      position: relative; background: var(--c-eerie-black);
+      background-image: url("assets/hero-image.jpg");
+      background-size: cover; background-position: center 35%;
+      min-height: 100vh; display: flex; align-items: center; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(26,26,26,0.55) 0%, rgba(26,26,26,0.72) 60%, rgba(26,26,26,0.90) 100%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative; z-index: 1; width: 100%; max-width: 1180px; margin: 0 auto;
+      padding: clamp(120px, 16vh, 170px) clamp(28px, 6vw, 96px) clamp(96px, 12vh, 140px);
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      letter-spacing: var(--tracking-xwide); text-transform: uppercase;
+      color: var(--c-sinopia); margin: 0 0 20px;
+    }
+    .hero-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.8rem, 5.5vw, 5.2rem); line-height: 1.06;
+      letter-spacing: -0.018em; color: var(--c-floral-white);
+      margin: 0; max-width: 16ch; text-wrap: balance;
+    }
+    .hero-sub {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.6;
+      color: rgba(252,250,240,0.72); margin: clamp(18px, 2.4vw, 28px) 0 0;
+      max-width: 44ch; text-wrap: pretty;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: 14px; margin-top: clamp(32px, 4vw, 46px);
+    }
+
+    /* ============ Value Prop Strip ============ */
+    .strip-wrap {
+      position: relative; z-index: 5;
+      padding: 0 clamp(24px, 5vw, 72px);
+      margin-top: -52px; margin-bottom: -52px;
+    }
+    .strip-card {
+      max-width: 1120px; margin: 0 auto;
+      background: var(--bg-surface); border-radius: var(--r-lg);
+      border-bottom: 4px solid var(--c-sinopia);
+      box-shadow: 0 -16px 36px -20px rgba(26,26,26,0.30),
+                  0 22px 48px -22px rgba(26,26,26,0.34),
+                  0 4px 10px -6px rgba(26,26,26,0.10);
+      padding: clamp(28px, 3.4vw, 44px) clamp(32px, 4vw, 64px);
+      display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: center; gap: clamp(20px, 3vw, 48px);
+    }
+    .vp-item { display: flex; align-items: center; gap: 18px; justify-content: center; }
+    .vp-check {
+      flex: 0 0 auto; width: 40px; height: 40px; border-radius: var(--r-pill);
+      background: var(--c-sinopia); display: grid; place-items: center;
+      box-shadow: 0 4px 10px -4px rgba(199,62,29,0.55);
+    }
+    .vp-check svg { width: 21px; height: 21px; display: block; }
+    .vp-text {
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: clamp(1.1rem, 1.45vw, 1.4rem); letter-spacing: -0.01em;
+      line-height: 1.15; color: var(--fg-ink); white-space: nowrap;
+    }
+    .vp-divider { width: 1px; align-self: stretch; margin: 6px 0; background: var(--line-soft); }
+
+    /* ============ Problem Statement ============ */
+    .problem {
+      background: #F9F6F1;
+      padding: clamp(72px, 11vh, 140px) clamp(28px, 6vw, 96px);
+    }
+    .problem-inner { max-width: 1180px; margin: 0 auto; }
+    .problem-cols {
+      display: grid; grid-template-columns: 1.15fr 0.85fr;
+      column-gap: clamp(36px, 4.5vw, 80px); align-items: start;
+    }
+    .p-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.1rem, 3.4vw, 3.25rem); line-height: 1.12;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0;
+      max-width: 26ch; text-wrap: balance;
+    }
+    .p-rule {
+      width: 64px; height: 3px; background: var(--c-sinopia); border-radius: 2px;
+      margin: clamp(24px, 3vw, 34px) 0 clamp(26px, 3vw, 34px);
+    }
+    .p-body {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-18);
+      line-height: 1.66; color: var(--fg-body); margin: 0 0 var(--s-5); max-width: 46ch;
+    }
+    .p-body:last-of-type { margin-bottom: 0; }
+    .pains { display: flex; flex-direction: column; gap: clamp(22px, 2.6vw, 30px); }
+    .pain { display: flex; align-items: center; gap: 18px; }
+    .pain-x {
+      flex: 0 0 auto; width: 34px; height: 34px; border-radius: var(--r-pill);
+      background: var(--c-black-olive); display: grid; place-items: center;
+    }
+    .pain-x svg { width: 16px; height: 16px; display: block; }
+    .pain-text {
+      font-family: var(--font-body); font-weight: 500; font-size: var(--fs-18);
+      line-height: 1.4; color: var(--fg-body);
+    }
+
+    /* ============ Solution ============ */
+    .solution {
+      position: relative; background: var(--c-eerie-black);
+      padding: clamp(80px, 12vh, 150px) clamp(28px, 6vw, 96px); overflow: hidden;
+    }
+    .solution::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: url("assets/solution-watermark.png");
+      background-repeat: repeat; background-size: 620px 620px;
+      opacity: 0.06; pointer-events: none; z-index: 0;
+    }
+    .solution-inner {
+      position: relative; z-index: 1; max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.12fr 0.88fr;
+      column-gap: clamp(40px, 5vw, 84px); align-items: center;
+    }
+    .s-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.2rem, 3.6vw, 3.4rem); line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--c-floral-white); margin: 0;
+    }
+    .hl-break { display: inline; }
+    .s-rule {
+      width: 64px; height: 3px; background: var(--c-sinopia); border-radius: 2px;
+      margin: clamp(24px, 3vw, 34px) 0 clamp(26px, 3vw, 34px);
+    }
+    .s-body {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-18);
+      line-height: 1.66; color: rgba(252,250,240,0.74); margin: 0 0 var(--s-5); max-width: 48ch;
+    }
+    .s-body:last-of-type { margin-bottom: 0; }
+    .sol-cards { display: flex; flex-direction: column; gap: clamp(18px, 2vw, 24px); }
+    .sol-card {
+      display: flex; align-items: flex-start; gap: clamp(18px, 1.8vw, 26px);
+      background: #242220; border: 1px solid rgba(252,250,240,0.08); border-radius: 20px;
+      padding: clamp(24px, 2.4vw, 32px) clamp(26px, 2.6vw, 36px);
+      transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
+    }
+    .sol-card:hover { border-color: rgba(199,62,29,0.5); transform: translateY(-2px); }
+    .sol-card-icon { flex: 0 0 auto; color: var(--c-sinopia); margin-top: 2px; }
+    .sol-card-icon svg { width: 34px; height: 34px; display: block; }
+    .sol-card-headline {
+      font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-20);
+      line-height: 1.2; letter-spacing: -0.01em; color: var(--c-floral-white); margin: 0 0 8px;
+    }
+    .sol-card-body {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
+      line-height: 1.55; color: var(--c-warm-300); margin: 0;
+    }
+
+    /* ============ Testimonials ============ */
+    .tst {
+      position: relative; background: var(--c-eerie-black);
+      padding: clamp(72px, 11vh, 132px) clamp(20px, 4vw, 64px); overflow: hidden;
+    }
+    .tst::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: url("assets/solution-watermark.png");
+      background-repeat: repeat; background-size: 620px 620px;
+      opacity: 0.06; pointer-events: none; z-index: 0;
+    }
+    .tst-inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+    .tst-head { text-align: center; max-width: 720px; margin: 0 auto clamp(40px, 5vw, 60px); }
+    .tst-eyebrow {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 16px;
+    }
+    .tst-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.1rem, 3.4vw, 3.2rem); line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--c-floral-white); margin: 0 0 14px; text-wrap: balance;
+    }
+    .tst-intro {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-18);
+      line-height: 1.5; color: rgba(252,250,240,0.62); margin: 0;
+    }
+    .carousel { position: relative; }
+    .viewport { overflow: hidden; }
+    .track { display: flex; align-items: stretch; transition: transform 460ms var(--ease-out); will-change: transform; }
+    .slide {
+      flex: 0 0 auto; width: min(720px, 80vw);
+      padding: 0 clamp(10px, 1.4vw, 18px);
+      transition: opacity 360ms var(--ease-out), transform 360ms var(--ease-out);
+    }
+    .slide:not(.is-active) { opacity: 0.32; transform: scale(0.94); }
+    .quote-card {
+      background: var(--bg-surface); border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
+      padding: clamp(36px, 4vw, 56px) clamp(32px, 3.6vw, 56px);
+      height: 100%; display: flex; flex-direction: column;
+    }
+    .quote-mark {
+      font-family: var(--font-display); font-size: 48px; line-height: 0.5;
+      color: var(--c-sinopia); opacity: 0.9; margin: 0 0 4px; height: 30px;
+    }
+    .quote-text {
+      font-family: var(--font-serif); font-weight: 500;
+      font-size: clamp(1.02rem, 1.2vw, 1.2rem); line-height: 1.5;
+      letter-spacing: -0.005em; color: var(--fg-ink); margin: 0; text-wrap: pretty;
+    }
+    .quote-foot { margin-top: auto; padding-top: clamp(26px, 3vw, 36px); }
+    .stars { display: flex; gap: 5px; margin-bottom: 18px; }
+    .stars svg { width: 20px; height: 20px; display: block; }
+    .person { display: flex; align-items: center; gap: 14px; }
+    .person-photo {
+      flex: 0 0 auto; width: 52px; height: 52px; border-radius: 50%;
+      background: var(--bg-surface-sunk); border: 1px solid var(--line-soft);
+      display: grid; place-items: center; font-family: var(--font-sans); font-weight: 500;
+      font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--fg-faint); text-align: center; line-height: 1.2; overflow: hidden;
+    }
+    .person-name { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-18); color: var(--fg-ink); }
+    .nav-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%); z-index: 3;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(252,250,240,0.10); border: 1px solid rgba(252,250,240,0.22);
+      backdrop-filter: blur(6px); color: var(--c-floral-white);
+      display: grid; place-items: center; cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+    .nav-arrow:hover { background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .nav-arrow svg { width: 22px; height: 22px; }
+    .nav-prev { left: clamp(-6px, 1vw, 18px); }
+    .nav-next { right: clamp(-6px, 1vw, 18px); }
+    .dots { display: flex; justify-content: center; gap: 10px; margin-top: clamp(28px, 3vw, 40px); }
+    .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: rgba(252,250,240,0.28); border: 0; padding: 0; cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), width var(--dur-fast) var(--ease-out);
+    }
+    .dot.is-active { background: var(--c-sinopia); width: 26px; border-radius: 5px; }
+    .tst-cta { display: flex; justify-content: center; margin-top: clamp(40px, 5vw, 60px); }
+
+    /* ============ How It Works ============ */
+    .hiw {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: clamp(48px, 8vh, 96px) clamp(24px, 5vw, 80px);
+      background-image: url("assets/how-it-works-bg.jpg");
+      background-size: 168%; background-position: 88% center; overflow: hidden;
+    }
+    .hiw::before {
+      content: ""; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(60,30,16,0.30) 0%, rgba(40,24,16,0.42) 100%), rgba(199,62,29,0.10);
+      pointer-events: none;
+    }
+    .glass {
+      position: relative; z-index: 1; width: 100%; max-width: 736px;
+      background: rgba(252,250,240,0.80);
+      backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border: 1px solid rgba(252,250,240,0.55); border-radius: 28px;
+      box-shadow: 0 40px 90px -30px rgba(26,26,26,0.55), 0 12px 30px -16px rgba(26,26,26,0.35);
+      padding: clamp(36px, 4vw, 56px) clamp(30px, 4vw, 60px) clamp(48px, 5vw, 68px); text-align: center;
+    }
+    .glass-domino { width: clamp(96px, 14vw, 132px); height: auto; display: block; margin: 0 auto 22px; opacity: 0.60; transform: scaleX(-1); }
+    .glass-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.08;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0 0 14px; text-wrap: balance;
+    }
+    .glass-sub {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-18);
+      line-height: 1.55; color: var(--fg-body);
+      margin: 0 auto clamp(30px, 3.4vw, 40px); max-width: 34em; text-wrap: balance;
+    }
+    .steps { display: flex; flex-direction: column; gap: 10px; max-width: 470px; margin: 0 auto; text-align: left; }
+    .step-card {
+      display: flex; align-items: center; gap: clamp(18px, 2.4vw, 26px);
+      background: #FFFFFF; border-radius: 16px;
+      padding: clamp(20px, 2.4vw, 26px) clamp(22px, 2.6vw, 30px);
+      box-shadow: 0 6px 16px -10px rgba(26,26,26,0.30);
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+    .step-card:hover { transform: translateY(-2px); box-shadow: 0 12px 26px -12px rgba(26,26,26,0.38); }
+    .step-num {
+      flex: 0 0 auto; font-family: var(--font-serif); font-weight: 700;
+      font-size: clamp(2.8rem, 4vw, 3.6rem); line-height: 0.85;
+      color: var(--c-sinopia); letter-spacing: -0.02em;
+      min-width: clamp(36px, 4vw, 48px); text-align: center;
+    }
+    .step-copy { flex: 1 1 auto; }
+    .step-headline {
+      font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-18);
+      line-height: 1.25; letter-spacing: -0.01em; color: var(--fg-ink); margin: 0 0 6px;
+    }
+    .step-body {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-14);
+      line-height: 1.5; color: var(--fg-muted); margin: 0;
+    }
+    .glass-cta { margin-top: clamp(30px, 3.4vw, 42px); }
+
+    /* ============ Reassurance ============ */
+    .rea {
+      position: relative; background: var(--c-eerie-black);
+      padding: clamp(80px, 13vh, 150px) clamp(28px, 6vw, 96px); overflow: hidden;
+    }
+    .rea::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: url("assets/solution-watermark.png");
+      background-repeat: repeat; background-size: 620px 620px;
+      opacity: 0.06; pointer-events: none; z-index: 0;
+    }
+    .rea-inner { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; text-align: center; }
+    .rea-eyebrow {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 18px;
+    }
+    .rea-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.1rem, 3.6vw, 3.3rem); line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--c-floral-white); margin: 0; text-wrap: balance;
+    }
+    .logos {
+      margin: clamp(48px, 6vw, 76px) 0 0; width: 100%; overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+    .logo-track {
+      display: flex; align-items: center; width: max-content;
+      gap: clamp(48px, 5vw, 84px); padding-right: clamp(48px, 5vw, 84px);
+      animation: logoscroll 48s linear infinite;
+    }
+    .logo-track img {
+      height: 40px; max-width: 150px; width: auto; object-fit: contain;
+      display: block; opacity: 0.64; flex: 0 0 auto;
+      transition: opacity var(--dur-base) var(--ease-out);
+    }
+    .logo-track img:hover { opacity: 1; }
+    .logo-track img.tall { height: 52px; }
+    @keyframes logoscroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) { .logo-track { animation: none; } }
+
+    /* ============ FAQs ============ */
+    .faq { background: #FCFAF0; padding: clamp(72px, 11vh, 132px) clamp(28px, 6vw, 96px); }
+    .faq-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 0.82fr 1.18fr;
+      column-gap: clamp(48px, 7vw, 110px); align-items: center;
+    }
+    .faq-eyebrow {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 18px;
+    }
+    .faq-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.2vw, 3rem); line-height: 1.12;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0; max-width: 14ch; text-wrap: balance;
+    }
+    .acc { display: flex; flex-direction: column; }
+    .acc-item { border-top: 1px solid var(--line-soft); }
+    .acc-item:last-child { border-bottom: 1px solid var(--line-soft); }
+    .acc-q {
+      width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+      background: none; border: none; cursor: pointer; text-align: left;
+      padding: clamp(22px, 2.4vw, 30px) 0;
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: clamp(1.05rem, 1.4vw, 1.28rem); line-height: 1.35;
+      letter-spacing: -0.01em; color: var(--fg-ink);
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .acc-q:hover { color: var(--c-sinopia); }
+    .acc-icon { flex: 0 0 auto; position: relative; width: 22px; height: 22px; margin-top: 3px; }
+    .acc-icon::before, .acc-icon::after {
+      content: ""; position: absolute; background: var(--c-sinopia); border-radius: 2px;
+      transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+    }
+    .acc-icon::before { top: 50%; left: 0; width: 100%; height: 2.4px; transform: translateY(-50%); }
+    .acc-icon::after { left: 50%; top: 0; width: 2.4px; height: 100%; transform: translateX(-50%); }
+    .acc-item.open .acc-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
+    .acc-panel { display: none; }
+    .acc-item.open .acc-panel { display: block; }
+    .acc-item.open .acc-panel.animating { animation: accFade var(--dur-base, 200ms) var(--ease-out); }
+    @keyframes accFade { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .acc-item.open .acc-panel.animating { animation: none; } }
+    .acc-a {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
+      line-height: 1.66; color: var(--fg-body); margin: 0;
+      padding: 0 64px clamp(24px, 2.6vw, 32px) 0; max-width: 60ch;
+    }
+
+    /* ============ Lead Magnet CTA ============ */
+    .lead { background: #FFFFFF; padding: clamp(64px, 9vh, 112px) clamp(28px, 6vw, 96px); display: flex; justify-content: center; }
+    .lead-card {
+      width: 100%; max-width: 1080px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      background: var(--bg-surface); border-radius: 24px; overflow: hidden;
+      box-shadow: 0 30px 70px -34px rgba(26,26,26,0.32), 0 8px 22px -14px rgba(26,26,26,0.18);
+    }
+    .lead-photo {
+      background-image: url("assets/lead-magnet.jpg");
+      background-size: cover; background-position: 60% center; min-height: 480px;
+    }
+    .lead-form {
+      padding: clamp(38px, 4vw, 60px) clamp(34px, 3.6vw, 56px);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .lead-label {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      color: var(--c-sinopia); text-transform: uppercase; letter-spacing: var(--tracking-xwide); margin: 0 0 16px;
+    }
+    .lead-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.2rem, 3.4vw, 3.1rem); line-height: 1.04;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0 0 18px;
+    }
+    .lead-sub {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
+      line-height: 1.6; color: var(--fg-body); margin: 0 0 30px; max-width: 42ch;
+    }
+    .lead-sub em { font-style: italic; }
+    .lead-field { margin-bottom: 14px; }
+    .lead-field input {
+      width: 100%; font-family: var(--font-sans); font-size: var(--fs-16); color: var(--fg-ink);
+      padding: 15px 20px; background: var(--bg-canvas); border: 1px solid var(--line-soft);
+      border-radius: var(--r-pill); outline: none;
+      transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+    .lead-field input::placeholder { color: var(--fg-faint); }
+    .lead-field input:focus { border-color: var(--c-sinopia); background: #FFFFFF; box-shadow: 0 0 0 3px rgba(199,62,29,0.12); }
+    .lead-btn {
+      margin-top: 10px; width: 100%;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14.5px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill); padding: 17px 28px; cursor: pointer;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .lead-btn:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .lead-btn:active { transform: translateY(1px); }
+
+    /* ============ Footer ============ */
+    .footer { background: #1A1A1A; }
+    .footer-main {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(56px, 8vh, 92px) clamp(28px, 6vw, 80px) clamp(40px, 5vw, 64px);
+      display: grid; grid-template-columns: 1.05fr 0.85fr 1.1fr;
+      gap: clamp(40px, 6vw, 96px); align-items: start;
+    }
+    .f-logo { height: 76px; width: auto; display: block; margin: 0 0 0 -2px; }
+    .f-tagline {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
+      line-height: 1.6; color: var(--c-warm-300); margin: 20px 0 0; max-width: 32ch;
+    }
+    .f-social {
+      margin-top: 26px; display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: var(--r-pill);
+      border: 1px solid rgba(252,250,240,0.18); color: var(--c-warm-300);
+      transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+    .f-social:hover { color: var(--c-floral-white); background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .f-social svg { width: 19px; height: 19px; display: block; }
+    .f-label {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 22px;
+    }
+    .f-nav { display: flex; flex-direction: column; gap: 14px; }
+    .f-nav a {
+      font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16);
+      color: var(--c-warm-200); text-decoration: none; width: fit-content;
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .f-nav a:hover { color: var(--c-floral-white); }
+    .f-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .f-form .full { grid-column: 1 / -1; }
+    .f-form input, .f-form textarea {
+      width: 100%; font-family: var(--font-sans); font-size: var(--fs-16);
+      color: var(--c-floral-white); background: #211F1D;
+      border: 1px solid rgba(252,250,240,0.07); border-radius: var(--r-md);
+      padding: 13px 16px; outline: none;
+      transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+    }
+    .f-form textarea { min-height: 110px; resize: vertical; }
+    .f-form input::placeholder, .f-form textarea::placeholder { color: var(--c-floral-white); opacity: 0.92; }
+    .f-form input:focus, .f-form textarea:focus { border-color: var(--c-sinopia); box-shadow: 0 0 0 3px rgba(199,62,29,0.18); }
+    .f-submit {
+      grid-column: 1 / -1; justify-self: start; margin-top: 4px;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      padding: 15px 38px; cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .f-submit:hover { background: var(--c-sinopia-600); }
+    .f-submit:active { transform: translateY(1px); }
+    .f-bottom {
+      border-top: 1px solid rgba(252,250,240,0.12);
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(22px, 2.6vw, 30px) clamp(28px, 6vw, 80px);
+    }
+    .f-copy {
+      font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-14);
+      color: var(--c-warm-400); margin: 0; text-align: center;
+    }
+
+    /* ============ Responsive ============ */
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .strip-card { grid-template-columns: 1fr; gap: 20px; justify-items: start; }
+      .vp-item { justify-content: flex-start; }
+      .vp-divider { width: 100%; height: 1px; margin: 0; }
+      .problem-cols { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 64px); }
+      .p-headline { max-width: none; }
+      .solution-inner { grid-template-columns: 1fr; row-gap: clamp(44px, 7vw, 64px); align-items: start; }
+      .hl-break { display: none; }
+      .s-headline { max-width: none; }
+      .faq-inner { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 56px); }
+      .faq-headline { max-width: none; }
+      .lead-card { grid-template-columns: 1fr; max-width: 520px; }
+      .lead-photo { min-height: 300px; }
+      .footer-main { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+    }
+    @media (max-width: 720px) {
+      .slide { width: 86vw; }
+      .nav-arrow { display: none; }
+    }
+    @media (max-width: 480px) {
+      .step-card { gap: 14px; padding: 18px; }
+      .step-num { min-width: 30px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" aria-label="Laid Off Launchpad home">
+      <img class="nav-logo" src="assets/logo-cream-brush.png" alt="Laid Off Launchpad">
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="essays.html">Articles</a>
+        <a href="#">The Accelerator</a>
+      </div>
+      <button class="btn-primary btn-sm">Book Your Job Search Audit</button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Job Landing Accelerator</p>
+      <h1 class="hero-headline">Your job search is a job. We&rsquo;ll help you run it.</h1>
+      <p class="hero-sub">Stop wondering what to do next. Build a repeatable daily system and land with confidence.</p>
+      <div class="hero-ctas">
+        <button class="btn-primary">Book Your Job Search Audit</button>
+        <button class="btn-ghost">Get the Free Playbook</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Value Prop Strip ===== -->
+  <section class="strip-wrap" aria-label="Value proposition">
+    <div class="strip-card">
+      <div class="vp-item">
+        <span class="vp-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12.5L10 17.5L19 7" stroke="#FCFAF0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <span class="vp-text">Apply with confidence</span>
+      </div>
+      <div class="vp-divider" aria-hidden="true"></div>
+      <div class="vp-item">
+        <span class="vp-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12.5L10 17.5L19 7" stroke="#FCFAF0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <span class="vp-text">Trust a proven process</span>
+      </div>
+      <div class="vp-divider" aria-hidden="true"></div>
+      <div class="vp-item">
+        <span class="vp-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5 12.5L10 17.5L19 7" stroke="#FCFAF0" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </span>
+        <span class="vp-text">Land with less luck</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Problem Statement ===== -->
+  <section class="problem" aria-label="Why you need a system">
+    <div class="problem-inner">
+      <h2 class="p-headline">You need a system for your job search because&hellip;</h2>
+      <div class="p-rule" aria-hidden="true"></div>
+      <div class="problem-cols">
+        <div class="p-left">
+          <p class="p-body">One moment you&rsquo;re in back-to-back meetings and juggling deadlines. Next thing you know, you&rsquo;re staring at a blank calendar. The world tells you to go find another job. But no one tells you how to do the job of job searching.</p>
+          <p class="p-body">With the right system, you can run your search with intention every day. And you&rsquo;ll know exactly what&rsquo;s working.</p>
+          <button class="btn-primary" style="margin-top: clamp(32px, 4vw, 44px);">Book Your Job Search Audit</button>
+        </div>
+        <div class="pains">
+          <div class="pain">
+            <span class="pain-x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 7L17 17M17 7L7 17" stroke="#FCFAF0" stroke-width="2.4" stroke-linecap="round"></path></svg>
+            </span>
+            <span class="pain-text">Applying and hearing nothing back</span>
+          </div>
+          <div class="pain">
+            <span class="pain-x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 7L17 17M17 7L7 17" stroke="#FCFAF0" stroke-width="2.4" stroke-linecap="round"></path></svg>
+            </span>
+            <span class="pain-text">Networking that stalls after the first conversation</span>
+          </div>
+          <div class="pain">
+            <span class="pain-x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 7L17 17M17 7L7 17" stroke="#FCFAF0" stroke-width="2.4" stroke-linecap="round"></path></svg>
+            </span>
+            <span class="pain-text">No way to tell what&rsquo;s moving the needle</span>
+          </div>
+          <div class="pain">
+            <span class="pain-x" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 7L17 17M17 7L7 17" stroke="#FCFAF0" stroke-width="2.4" stroke-linecap="round"></path></svg>
+            </span>
+            <span class="pain-text">A search that drags on longer than it should</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Solution ===== -->
+  <section class="solution" aria-label="The solution">
+    <div class="solution-inner">
+      <div class="s-left">
+        <h2 class="s-headline">A repeatable job search system<br class="hl-break"> changes everything.</h2>
+        <div class="s-rule" aria-hidden="true"></div>
+        <p class="s-body">The problem isn&rsquo;t effort. Most job seekers are working hard. The problem is that hard work without a structure doesn&rsquo;t compound &mdash; it just exhausts.</p>
+        <p class="s-body">When your search runs on a system, every day builds on the last. You know what to do, you know why you&rsquo;re doing it, and you stop wondering if any of it is working. That&rsquo;s what we build together.</p>
+        <button class="btn-primary" style="margin-top: clamp(32px, 4vw, 44px);">Book Your Job Search Audit</button>
+      </div>
+      <div class="sol-cards">
+        <div class="sol-card">
+          <span class="sol-card-icon" aria-hidden="true"><i data-lucide="target"></i></span>
+          <div>
+            <h3 class="sol-card-headline">Search with confidence</h3>
+            <p class="sol-card-body">No more guessing what to do next. Your system tells you.</p>
+          </div>
+        </div>
+        <div class="sol-card">
+          <span class="sol-card-icon" aria-hidden="true"><i data-lucide="calendar-check"></i></span>
+          <div>
+            <h3 class="sol-card-headline">Trust the process</h3>
+            <p class="sol-card-body">Consistency beats intensity. A daily routine outlasts motivation every time.</p>
+          </div>
+        </div>
+        <div class="sol-card">
+          <span class="sol-card-icon" aria-hidden="true"><i data-lucide="trending-up"></i></span>
+          <div>
+            <h3 class="sol-card-headline">Land with less luck</h3>
+            <p class="sol-card-body">The right activities, done repeatedly, create their own momentum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Testimonials ===== -->
+  <section class="tst" aria-label="Client testimonials">
+    <div class="tst-inner">
+      <div class="tst-head">
+        <p class="tst-eyebrow">Client Experiences</p>
+        <h2 class="tst-headline">What our clients experience</h2>
+        <p class="tst-intro">Real people. Real layoffs. Real progress.</p>
+      </div>
+      <div class="carousel">
+        <div class="viewport">
+          <div class="track" id="track"></div>
+        </div>
+        <button class="nav-arrow nav-prev" id="prev" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+        <button class="nav-arrow nav-next" id="next" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+        <div class="dots" id="dots"></div>
+      </div>
+      <div class="tst-cta">
+        <button class="btn-primary">Book Your Job Search Audit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== How It Works ===== -->
+  <section class="hiw" aria-label="How it works">
+    <div class="glass">
+      <img class="glass-domino" src="assets/dominoes-connector.png" alt="" aria-hidden="true">
+      <h2 class="glass-headline">Here&rsquo;s how it works</h2>
+      <p class="glass-sub">The best results happen when the job search<br>is confident and consistent. We help with both.</p>
+      <div class="steps">
+        <article class="step-card">
+          <div class="step-num" aria-hidden="true">1</div>
+          <div class="step-copy">
+            <h3 class="step-headline">Get the Free Job Search Playbook</h3>
+            <p class="step-body">Start building your search the right way. Five days of practical guidance delivered straight to your inbox.</p>
+          </div>
+        </article>
+        <article class="step-card">
+          <div class="step-num" aria-hidden="true">2</div>
+          <div class="step-copy">
+            <h3 class="step-headline">Book Your Job Search Audit</h3>
+            <p class="step-body">We&rsquo;ll map your situation, identify what&rsquo;s working and what isn&rsquo;t, and build a plan together.</p>
+          </div>
+        </article>
+        <article class="step-card">
+          <div class="step-num" aria-hidden="true">3</div>
+          <div class="step-copy">
+            <h3 class="step-headline">Join the Job Landing Accelerator</h3>
+            <p class="step-body">Execute your search with a proven system, expert coaching, and a community behind you.</p>
+          </div>
+        </article>
+      </div>
+      <div class="glass-cta">
+        <button class="btn-primary">Book Your Job Search Audit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reassurance ===== -->
+  <section class="rea" aria-label="Proof it works">
+    <div class="rea-inner">
+      <p class="rea-eyebrow">Proof it works</p>
+      <h2 class="rea-headline">Our clients have landed at&hellip;</h2>
+      <div class="logos">
+        <div class="logo-track">
+          <img src="assets/logos/white/siemens.png" alt="Siemens">
+          <img src="assets/logos/white/headspace.png" alt="Headspace">
+          <img src="assets/logos/white/nebraska_medicine.png" class="tall" alt="Nebraska Medicine">
+          <img src="assets/logos/white/resourcepro.png" alt="ReSource Pro">
+          <img src="assets/logos/white/splitit.png" alt="Splitit">
+          <img src="assets/logos/white/lee_enterprises.png" class="tall" alt="Lee Enterprises">
+          <img src="assets/logos/white/findd.png" alt="Findd">
+          <img src="assets/logos/white/ninja_holdings.png" alt="Ninja Holdings">
+          <img src="assets/logos/white/moon_valley_nurseries.png" class="tall" alt="Moon Valley Nurseries">
+          <img src="assets/logos/white/socket_fiber.png" class="tall" alt="Socket Fiber">
+          <img src="assets/logos/white/studio_north.png" class="tall" alt="Studio North">
+          <img src="assets/logos/white/siemens.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/headspace.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/nebraska_medicine.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/resourcepro.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/splitit.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/lee_enterprises.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/findd.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/ninja_holdings.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/moon_valley_nurseries.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/socket_fiber.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/studio_north.png" class="tall" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQs ===== -->
+  <section class="faq" aria-label="Frequently asked questions">
+    <div class="faq-inner">
+      <div class="faq-left">
+        <p class="faq-eyebrow">Questions</p>
+        <h2 class="faq-headline">Frequently Asked Questions</h2>
+      </div>
+      <div class="acc">
+        <div class="acc-item open">
+          <button class="acc-q" aria-expanded="true">
+            How is this different from the outplacement services my employer offered?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">Outplacement services are built for scale. They work for everyone, which means they&rsquo;re often limited to resume help and general career coaching. Those things have value, but they don&rsquo;t answer the question that actually drives results: what should I do tomorrow, and the day after that? The Job Landing Accelerator is built around establishing a job search routine &mdash; something no outplacement service we&rsquo;ve encountered is focused on. That&rsquo;s the difference.</p>
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            How long is the program?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">The Job Landing Accelerator runs 12 weeks with weekly group sessions. The curriculum is front-loaded so you build your foundation early and spend the back half of the program executing with support and accountability behind you.</p>
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            What if I land a job before the program ends?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">That&rsquo;s the goal. If you land early, you&rsquo;re welcome to stay in the cohort through the transition &mdash; onboarding a new role is its own challenge and the community will still be valuable. Either way, landing fast is a win we&rsquo;ll celebrate together.</p>
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            Do you offer a guarantee?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">Yes. If you complete the curriculum, show up to the sessions, and commit to your routine for the first six weeks &mdash; and you&rsquo;re still not satisfied &mdash; we&rsquo;ll refund your investment, no questions asked. The guarantee exists because we&rsquo;re confident the program works when you work it.</p>
+          </div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            What if I&rsquo;m not sure yet?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">That&rsquo;s exactly what the Job Search Audit is for. It&rsquo;s a no-pressure conversation where we map your situation and figure out together whether the Job Landing Accelerator is the right fit. No obligation. Just clarity.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Lead Magnet CTA ===== -->
+  <section class="lead" aria-label="Get the playbook">
+    <div class="lead-card">
+      <div class="lead-photo" role="img" aria-label="Professional working at a desk"></div>
+      <form class="lead-form" onsubmit="return false;">
+        <p class="lead-label">Get the Playbook:</p>
+        <h2 class="lead-headline">Job Search Smarter</h2>
+        <p class="lead-sub">5 days to diagnose what&rsquo;s stalling your search and start landing faster <em>(even if you&rsquo;ve already been at it for months)</em>.</p>
+        <div class="lead-field">
+          <input type="text" name="first_name" placeholder="First name" aria-label="First name" autocomplete="given-name">
+        </div>
+        <div class="lead-field">
+          <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+        </div>
+        <button class="lead-btn" type="submit">Send Me the Playbook</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="f-brand">
+        <img class="f-logo" src="assets/logo-cream-brush-cropped.png" alt="Laid Off Launchpad">
+        <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
+        <a class="f-social" href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path>
+          </svg>
+        </a>
+      </div>
+      <nav class="f-menu" aria-label="Footer">
+        <p class="f-label">Menu</p>
+        <div class="f-nav">
+          <a href="index.html">Homepage</a>
+          <a href="about.html">About</a>
+          <a href="essays.html">Articles</a>
+          <a href="#">The Accelerator</a>
+          <a href="#">Book Your Job Search Audit</a>
+          <a href="#">Privacy Policy &amp; Terms of Use</a>
+        </div>
+      </nav>
+      <div class="f-contact">
+        <p class="f-label">Contact Us</p>
+        <form class="f-form" onsubmit="return false;">
+          <input class="full" type="text" placeholder="Full name" aria-label="Full name" autocomplete="name">
+          <input class="full" type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea class="full" placeholder="Message" aria-label="Message"></textarea>
+          <button class="f-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p class="f-copy">Copyright &copy; 2026 &mdash; Laid Off Launchpad. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+
+    /* ---- Testimonials carousel ---- */
+    const DATA = [
+      { name: "Kristen P.", quote: "The Support Crew gave me tools and insights to complement my existing search, and the emotional and mental support to realize the layoff wasn't a result of my skill set. Austin has been through it and come out on the other side — he was proof that this wasn't a forever situation, and he brought a level of calm and clarity to a really chaotic time. Together, my cohort provided a place to share the lows of the search without wallowing in them, turning them into productive routine instead." },
+      { name: "Adam M.", quote: "Having others in the Support Crew who were further along in their job search really helped me understand today's job search. Just having a meeting on the calendar to attend regularly gave me a sense of normalcy. The community gained from Support Crew was exactly what I needed to help me move forward. Austin's insights on networking and job search/life balance along with adding some accountability were the missing pieces that I had not found in my research." },
+      { name: "Emily K.", quote: "Joining the Accelerator was the best thing I did for myself and my job search after experiencing a layoff. The LAND routine and Support Crew provide structure, community, and friendship during a time when it's so easy to become untethered. Building connections with peers who are experiencing the same peaks and valleys you are allows you to shed the 'ever-optimist' mask you feel beholden to when talking about a job search, which is both refreshing and necessary." },
+      { name: "Joe V.", quote: "Austin's LAND framework has been my rock throughout my journey, and is a simple yet powerful way to organize your day when your job becomes to look for a job. On a day-to-day basis, it's easy to forget and do too much (or not enough!) of one aspect, often leading to demoralizing outcomes. But, as Austin explains so well, 'our routines drive our days.' The positive effects of LAND multiply with a crew, as everyone needs the reminder that this journey does not have to be done alone." }
+    ];
+    const star = '<svg viewBox="0 0 24 24" fill="#C73E1D"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>';
+    const track = document.getElementById('track');
+    const dotsWrap = document.getElementById('dots');
+    const N = DATA.length;
+    const REPEAT = 3;
+    const MID = N;
+    function buildSlide(d) {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.innerHTML = '<div class="quote-card"><div class="quote-mark" aria-hidden="true">&ldquo;</div><p class="quote-text">' + d.quote + '</p><div class="quote-foot"><div class="stars" aria-label="5 out of 5 stars">' + star.repeat(5) + '</div><div class="person"><div class="person-photo">[Client<br>Photo]</div><span class="person-name">' + d.name + '</span></div></div></div>';
+      return slide;
+    }
+    for (let r = 0; r < REPEAT; r++) DATA.forEach(d => track.appendChild(buildSlide(d)));
+    DATA.forEach((d, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+    const slides = [...track.children];
+    const dots = [...dotsWrap.children];
+    const KEY = 'lol-testimonial-idx';
+    const saved = parseInt(localStorage.getItem(KEY) || '0', 10);
+    const startReal = (!Number.isNaN(saved) && saved >= 0 && saved < N) ? saved : 0;
+    let pos = MID + startReal;
+    function realIdx() { return ((pos % N) + N) % N; }
+    function position(animate) {
+      track.style.transition = animate ? '' : 'none';
+      const active = slides[pos];
+      const slideW = active.offsetWidth;
+      const vpW = track.parentElement.offsetWidth;
+      const center = active.offsetLeft + slideW / 2;
+      const offset = vpW / 2 - center;
+      track.style.transform = 'translateX(' + offset + 'px)';
+      if (!animate) void track.offsetWidth;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === pos));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === realIdx()));
+      localStorage.setItem(KEY, String(realIdx()));
+    }
+    function normalizeInstant() {
+      let changed = false;
+      while (pos < N) { pos += N; changed = true; }
+      while (pos >= 2 * N) { pos -= N; changed = true; }
+      if (changed) position(false);
+    }
+    function step(delta) { normalizeInstant(); pos += delta; position(true); }
+    function goTo(real) {
+      normalizeInstant();
+      let delta = real - realIdx();
+      if (delta > N / 2) delta -= N;
+      if (delta < -N / 2) delta += N;
+      pos += delta;
+      position(true);
+    }
+    document.getElementById('prev').addEventListener('click', () => step(-1));
+    document.getElementById('next').addEventListener('click', () => step(1));
+    window.addEventListener('resize', () => position(false));
+    function initialRender() { position(false); }
+    if (document.readyState === 'complete') initialRender();
+    else window.addEventListener('load', initialRender);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(initialRender);
+    initialRender();
+
+    /* ---- FAQ accordion ---- */
+    document.querySelectorAll('.acc-item').forEach(function(item) {
+      var btn = item.querySelector('.acc-q');
+      var panel = item.querySelector('.acc-panel');
+      panel.addEventListener('animationend', function() { panel.classList.remove('animating'); });
+      btn.addEventListener('click', function() {
+        var isOpen = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) panel.classList.add('animating');
+        else panel.classList.remove('animating');
+      });
+    });
+  </script>
+</body>
+</html>

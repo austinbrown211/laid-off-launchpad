@@ -3,136 +3,290 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laid Off Launchpad — About Austin</title>
+  <title>Laid Off Launchpad — About</title>
   <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
   <script src="assets/image-slot.js"></script>
   <style>
     *, *::before, *::after { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
-    body { font-family: var(--font-sans); background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font-sans); background: var(--c-floral-white); -webkit-font-smoothing: antialiased; }
 
-    .about {
-      background: #FFFFFF;
-      padding: clamp(60px, 9vh, 112px) clamp(28px, 6vw, 96px);
+    .nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px clamp(28px, 5vw, 72px);
     }
-    .about-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: clamp(48px, 6.5vw, 104px);
-      align-items: center;
+    .nav-logo { height: 128px; width: auto; display: block; margin-left: -12px; }
+    .nav-right { display: flex; align-items: center; gap: clamp(22px, 3vw, 40px); }
+    .nav-links { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 38px); }
+    .nav-links a {
+      font-family: var(--font-sans); font-weight: 500; font-size: 15px;
+      color: rgba(252,250,240,0.82); text-decoration: none;
+      padding-bottom: 3px; border-bottom: 1.5px solid transparent;
+      transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+    .nav-links a:hover, .nav-links a.is-active { color: var(--c-floral-white); border-bottom-color: var(--c-sinopia); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans); font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      cursor: pointer; white-space: nowrap;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-sm { font-size: 13px; letter-spacing: 0.14em; padding: 11px 22px; }
+    .btn-md { font-size: 14.5px; padding: 17px 34px; }
+
+    .hero {
+      position: relative; background: var(--c-eerie-black);
+      min-height: 40vh; display: flex; align-items: center; justify-content: center;
+      padding: clamp(130px, 15vh, 160px) clamp(28px, 6vw, 80px) clamp(48px, 7vh, 80px);
+      text-align: center;
+    }
+    .hero-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.4vw, 3.1rem); line-height: 1.16;
+      letter-spacing: -0.01em; color: var(--c-floral-white);
+      margin: 0; max-width: 24ch; text-wrap: balance;
     }
 
-    /* ---- Left column: headshot ---- */
-    .headshot {
-      width: 100%;
-      max-width: 400px;
-      height: clamp(352px, 35vw, 474px);
-      align-self: center;
-      justify-self: end;
-      border-radius: var(--r-lg);
-      overflow: hidden;
-      background: var(--bg-surface-sunk);
-      box-shadow: var(--shadow-lg);
+    .story { background: #FFFFFF; padding: clamp(72px, 11vh, 132px) clamp(28px, 6vw, 96px); }
+    .story-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1.08fr 0.92fr;
+      column-gap: clamp(56px, 7vw, 116px); align-items: start;
+    }
+    .story-copy { max-width: 60ch; }
+    .story-copy p {
+      font-family: var(--font-serif); font-weight: 400;
+      font-size: clamp(1.04rem, 1.2vw, 1.18rem); line-height: 1.6;
+      color: var(--fg-body); margin: 0 0 1.1em;
+    }
+    .story-copy p strong { font-weight: 700; color: var(--fg-ink); }
+    .story-aside { align-self: start; }
+    .story-photo {
+      width: 100%; height: auto; aspect-ratio: 2331 / 3164;
+      border-radius: var(--r-lg); overflow: hidden;
+      background: var(--bg-surface-sunk); box-shadow: var(--shadow-lg);
       --placeholder-fg: var(--c-warm-500);
     }
+    .story-copy p.story-sign {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(1.6rem, 2.3vw, 2.1rem); color: var(--c-sinopia);
+      margin: 0.55em 0 0; line-height: 1; text-align: left;
+    }
+    .story-copy p.story-greeting {
+      font-family: var(--font-display); font-weight: 300;
+      font-size: clamp(1.6rem, 2.3vw, 2.1rem); color: var(--c-sinopia);
+      margin: 0 0 0.5em; line-height: 1; text-align: left;
+    }
 
-    /* ---- Right column ---- */
-    .a-headline {
-      font-family: var(--font-serif);
-      font-weight: 600;
-      font-size: clamp(2.1rem, 3.4vw, 3.2rem);
-      line-height: 1.12;
-      letter-spacing: -0.012em;
-      color: var(--fg-ink);
-      margin: 0;
-      max-width: 18ch;
-      text-wrap: balance;
+    .help-card {
+      max-width: 1200px; margin: clamp(56px, 7vh, 96px) auto 0;
+      background: var(--c-floral-white); border-radius: var(--r-lg);
+      padding: clamp(36px, 5vw, 72px);
+      box-shadow: 0 18px 44px -22px rgba(26,26,26,0.22), 0 4px 12px -8px rgba(26,26,26,0.12);
     }
-    .a-rule {
-      width: 64px; height: 3px;
-      background: var(--c-sinopia);
-      border-radius: 2px;
-      margin: clamp(22px, 2.6vw, 30px) 0 clamp(26px, 3vw, 34px);
+    .help-eyebrow {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-20); letter-spacing: var(--tracking-wide);
+      text-transform: uppercase; color: var(--c-sinopia); text-align: center;
+      margin: 0 0 clamp(32px, 3.8vw, 52px);
     }
-    .a-body {
-      font-family: var(--font-body);
-      font-weight: 400;
-      font-size: var(--fs-18);
-      line-height: 1.72;
-      color: var(--fg-body);
-      margin: 0 0 var(--s-5);
-      max-width: 52ch;
+    .help-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      column-gap: clamp(32px, 4vw, 64px); row-gap: clamp(32px, 3.6vw, 48px);
     }
-    .a-body:last-of-type { margin-bottom: 0; }
-    .a-link {
-      color: var(--c-sinopia);
-      font-weight: 600;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: color var(--dur-fast) var(--ease-out);
-    }
-    .a-link:hover { color: var(--c-sinopia-700); }
+    .help-item { display: flex; flex-direction: column; gap: 10px; }
+    .help-icon { color: var(--c-sinopia); width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; }
+    .help-icon svg { width: 30px; height: 30px; }
+    .help-label { font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-18); color: var(--fg-ink); margin: 2px 0 0; line-height: 1.25; }
+    .help-desc { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16); color: var(--fg-body); line-height: 1.45; margin: 0; text-wrap: pretty; }
 
-    /* Primary CTA — matches the hero / problem / solution pill exactly */
-    .btn-primary {
-      display: inline-flex;
-      align-items: center;
-      margin-top: clamp(30px, 3.6vw, 40px);
-      font-family: var(--font-sans);
-      font-weight: 700;
-      font-size: 14.5px;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      line-height: 1.1;
-      color: var(--c-floral-white);
-      background: var(--c-sinopia);
-      border: 1.5px solid transparent;
-      border-radius: var(--r-pill);
-      padding: 17px 32px;
-      cursor: pointer;
-      white-space: nowrap;
-      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
-      transition: background var(--dur-fast) var(--ease-out),
-                  box-shadow var(--dur-fast) var(--ease-out),
-                  transform var(--dur-fast) var(--ease-out);
-    }
-    .btn-primary:hover {
-      background: var(--c-sinopia-600);
-      box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7);
-    }
-    .btn-primary:active { transform: translateY(1px); }
+    .cta { background: var(--c-floral-white); padding: clamp(80px, 12vh, 144px) clamp(28px, 6vw, 80px); text-align: center; }
+    .cta-inner { max-width: 760px; margin: 0 auto; }
+    .cta-eyebrow { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 22px; }
+    .cta-headline { font-family: var(--font-serif); font-weight: 600; font-size: clamp(2.2rem, 4vw, 3.5rem); line-height: 1.1; letter-spacing: -0.012em; color: var(--fg-ink); margin: 0; text-wrap: balance; }
+    .cta-body { font-family: var(--font-serif); font-weight: 400; font-size: clamp(1.18rem, 1.5vw, 1.4rem); line-height: 1.55; color: var(--fg-body); margin: 22px auto 0; max-width: 46ch; text-wrap: pretty; }
+    .cta .btn-primary { margin-top: clamp(34px, 4vw, 44px); }
 
-    @media (max-width: 880px) {
-      .about-inner { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 56px); align-items: start; }
-      .headshot { max-width: 420px; height: clamp(420px, 90vw, 520px); }
-      .a-headline { max-width: none; }
+    .footer { background: #1A1A1A; }
+    .footer-main {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(56px, 8vh, 92px) clamp(28px, 6vw, 80px) clamp(40px, 5vw, 64px);
+      display: grid; grid-template-columns: 1.05fr 0.85fr 1.1fr;
+      gap: clamp(40px, 6vw, 96px); align-items: start;
+    }
+    .f-logo { height: 76px; width: auto; display: block; margin: 0 0 0 -2px; }
+    .f-tagline { font-family: var(--font-body); font-size: var(--fs-16); line-height: 1.6; color: var(--c-warm-300); margin: 20px 0 0; max-width: 32ch; }
+    .f-social { margin-top: 26px; display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: var(--r-pill); border: 1px solid rgba(252,250,240,0.18); color: var(--c-warm-300); transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out); }
+    .f-social:hover { color: var(--c-floral-white); background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .f-social svg { width: 19px; height: 19px; display: block; }
+    .f-label { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 22px; }
+    .f-nav { display: flex; flex-direction: column; gap: 14px; }
+    .f-nav a { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16); color: var(--c-warm-200); text-decoration: none; width: fit-content; transition: color var(--dur-fast) var(--ease-out); }
+    .f-nav a:hover { color: var(--c-floral-white); }
+    .f-form { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .f-form input, .f-form textarea { width: 100%; font-family: var(--font-sans); font-size: var(--fs-16); color: var(--c-floral-white); background: #211F1D; border: 1px solid rgba(252,250,240,0.07); border-radius: var(--r-md); padding: 13px 16px; outline: none; transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+    .f-form textarea { min-height: 110px; resize: vertical; }
+    .f-form input::placeholder, .f-form textarea::placeholder { color: var(--c-floral-white); opacity: 0.92; }
+    .f-form input:focus, .f-form textarea:focus { border-color: var(--c-sinopia); box-shadow: 0 0 0 3px rgba(199,62,29,0.18); }
+    .f-submit { grid-column: 1 / -1; justify-self: start; margin-top: 4px; font-family: var(--font-sans); font-weight: 700; font-size: 14px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1; color: var(--c-floral-white); background: var(--c-sinopia); border: 1.5px solid transparent; border-radius: var(--r-pill); padding: 15px 38px; cursor: pointer; transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+    .f-submit:hover { background: var(--c-sinopia-600); }
+    .f-submit:active { transform: translateY(1px); }
+    .f-bottom { border-top: 1px solid rgba(252,250,240,0.12); max-width: 1180px; margin: 0 auto; padding: clamp(22px, 2.6vw, 30px) clamp(28px, 6vw, 80px); }
+    .f-copy { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-14); color: var(--c-warm-400); margin: 0; text-align: center; }
+
+    @media (max-width: 920px) {
+      .nav-links { display: none; }
+      .story-inner { grid-template-columns: 1fr; row-gap: clamp(44px, 8vw, 60px); }
+      .story-aside { position: static; order: -1; max-width: 460px; }
+      .story-copy { max-width: none; }
+      .help-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .footer-main { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+    }
+    @media (max-width: 560px) {
+      .help-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <section class="about" data-screen-label="About Austin" aria-label="About Austin">
-    <div class="about-inner">
-      <!-- Left column: headshot -->
-      <image-slot
-        class="headshot"
-        id="austin-headshot"
-        shape="rect"
-        fit="cover"
-        src="assets/austin-headshot.jpg"
-        placeholder="Austin headshot">
-      </image-slot>
 
-      <!-- Right column -->
-      <div class="a-right">
-        <h2 class="a-headline">Hi, I&rsquo;m Austin. I&rsquo;ve been exactly where you are.</h2>
-        <div class="a-rule" aria-hidden="true"></div>
-        <p class="a-body">Each time I was laid off, my employer offered outplacement support. Resume help. Career guidance. None of it answered the one question that actually mattered: what do I do tomorrow?</p>
-        <p class="a-body">That question led me to build a system. And then to build Laid Off Launchpad to share it with people exactly like you. <a class="a-link" href="#">learn more &rarr;</a></p>
-        <button class="btn-primary">Book Your Job Search Audit</button>
+  <!-- ===== Nav ===== -->
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" aria-label="Laid Off Launchpad home">
+      <img class="nav-logo" src="assets/logo-cream-brush.png" alt="Laid Off Launchpad">
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a class="is-active" href="about.html">About</a>
+        <a href="essays.html">Articles</a>
+        <a href="#">The Accelerator</a>
+      </div>
+      <button class="btn-primary btn-sm">Book Your Job Search Audit</button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-label="About hero">
+    <h1 class="hero-headline">Helping job seekers land faster with a repeatable daily system.</h1>
+  </section>
+
+  <!-- ===== The Story ===== -->
+  <section class="story" aria-label="Austin's story">
+    <div class="story-inner">
+      <div class="story-copy">
+        <p class="story-greeting">Hi there.</p>
+        <p>If you&rsquo;ve been laid off, you already know &mdash; <strong>the hardest part isn&rsquo;t the resume.</strong> It&rsquo;s waking up the next morning with nowhere to be and no idea what to do with the day.</p>
+        <p>I know that feeling. <strong>I&rsquo;ve lived it three times.</strong></p>
+        <p>I spent 15 years building a career in startups, media, and telecom. Director of Corporate Strategy. Director of Product Management, leading a team of 24 with an $800M product portfolio. By every measure, I had figured out how to move up. And then, three separate times, it was gone.</p>
+        <p>Each layoff was different. Each one was hard. And each time, the thing that got me through wasn&rsquo;t a better resume or a stronger LinkedIn profile. <strong>It was building a routine that gave my day structure</strong> when everything else felt uncertain.</p>
+        <p>I&rsquo;ve finished two full-distance Ironmans. I know what a sustainable daily system looks like, and I know what happens when you don&rsquo;t have one. So I built a routine around my search &mdash; and I landed faster and better each time. <strong>That&rsquo;s why I started Laid Off Launchpad.</strong> To help people like you.</p>
+        <p class="story-sign">&mdash; Austin</p>
+      </div>
+      <aside class="story-aside">
+        <image-slot
+          class="story-photo"
+          id="austin-about-photo"
+          shape="rect"
+          fit="cover"
+          src="assets/austin-about.jpg"
+          placeholder="Warm, natural-light photo of Austin">
+        </image-slot>
+      </aside>
+    </div>
+
+    <div class="help-card">
+      <p class="help-eyebrow">I love helping</p>
+      <div class="help-grid">
+        <div class="help-item">
+          <span class="help-icon"><i data-lucide="compass"></i></span>
+          <p class="help-label">Clarify your direction</p>
+          <p class="help-desc">Feel confident in the career pathway you&rsquo;re pursuing.</p>
+        </div>
+        <div class="help-item">
+          <span class="help-icon"><i data-lucide="target"></i></span>
+          <p class="help-label">Sharpen your value</p>
+          <p class="help-desc">Position and communicate what makes you the right hire.</p>
+        </div>
+        <div class="help-item">
+          <span class="help-icon"><i data-lucide="calendar-check"></i></span>
+          <p class="help-label">Build your structure</p>
+          <p class="help-desc">Develop a productive daily job search routine.</p>
+        </div>
+        <div class="help-item">
+          <span class="help-icon"><i data-lucide="life-buoy"></i></span>
+          <p class="help-label">Navigate the hard moments</p>
+          <p class="help-desc">Get support when the process gets frustrating.</p>
+        </div>
+        <div class="help-item">
+          <span class="help-icon"><i data-lucide="shield"></i></span>
+          <p class="help-label">Protect your energy</p>
+          <p class="help-desc">Manage the emotional weight of the journey.</p>
+        </div>
+        <div class="help-item">
+          <span class="help-icon"><i data-lucide="circle-check"></i></span>
+          <p class="help-label">Land the role</p>
+          <p class="help-desc">Get to yes faster than you thought possible.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta" aria-label="Book your audit">
+    <div class="cta-inner">
+      <p class="cta-eyebrow">Ready to talk?</p>
+      <h2 class="cta-headline">Book Your Free Job Search Audit</h2>
+      <p class="cta-body">A focused 30-minute conversation about where you are and what would actually move the needle.</p>
+      <button class="btn-primary btn-md">Book Your Job Search Audit</button>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="f-brand">
+        <img class="f-logo" src="assets/logo-cream-brush-cropped.png" alt="Laid Off Launchpad">
+        <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
+        <a class="f-social" href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path></svg>
+        </a>
+      </div>
+      <nav class="f-menu" aria-label="Footer">
+        <p class="f-label">Menu</p>
+        <div class="f-nav">
+          <a href="index.html">Homepage</a>
+          <a href="about.html">About</a>
+          <a href="essays.html">Articles</a>
+          <a href="#">The Accelerator</a>
+          <a href="#">Book Your Job Search Audit</a>
+          <a href="#">Privacy Policy &amp; Terms of Use</a>
+        </div>
+      </nav>
+      <div class="f-contact">
+        <p class="f-label">Contact Us</p>
+        <form class="f-form" onsubmit="return false;">
+          <input class="full" type="text" placeholder="Full name" aria-label="Full name" autocomplete="name">
+          <input class="full" type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea class="full" placeholder="Message" aria-label="Message"></textarea>
+          <button class="f-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p class="f-copy">Copyright &copy; 2026 &mdash; Laid Off Launchpad. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
 </body>
 </html>
