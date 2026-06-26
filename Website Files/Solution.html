@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — The Solution</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--c-eerie-black); -webkit-font-smoothing: antialiased; }
+
+    .solution {
+      position: relative;
+      background: var(--c-eerie-black);
+      padding: clamp(80px, 12vh, 150px) clamp(28px, 6vw, 96px);
+      overflow: hidden;
+    }
+    /* Branded watermark — falling-dominoes mark, whisper level */
+    .solution::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("assets/solution-watermark.png");
+      background-repeat: repeat;
+      background-size: 620px 620px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .solution-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      column-gap: clamp(40px, 5vw, 84px);
+      align-items: center;
+    }
+
+    /* ---- Left column ---- */
+    .s-headline {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(2.2rem, 3.6vw, 3.4rem);
+      line-height: 1.1;
+      letter-spacing: -0.015em;
+      color: var(--c-floral-white);
+      margin: 0;
+      max-width: none;
+    }
+    .hl-break { display: inline; }
+    .s-rule {
+      width: 64px; height: 3px;
+      background: var(--c-sinopia);
+      border-radius: 2px;
+      margin: clamp(24px, 3vw, 34px) 0 clamp(26px, 3vw, 34px);
+    }
+    .s-body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--fs-18);
+      line-height: 1.66;
+      color: rgba(252, 250, 240, 0.74);
+      margin: 0 0 var(--s-5);
+      max-width: 48ch;
+    }
+    .s-body:last-of-type { margin-bottom: 0; }
+
+    /* Primary CTA — matches the hero / problem primary pill exactly */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      margin-top: clamp(32px, 4vw, 44px);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 14.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--c-floral-white);
+      background: var(--c-sinopia);
+      border: 1.5px solid transparent;
+      border-radius: var(--r-pill);
+      padding: 17px 32px;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out),
+                  transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover {
+      background: var(--c-sinopia-600);
+      box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7);
+    }
+    .btn-primary:active { transform: translateY(1px); }
+
+    /* ---- Right column: benefit cards ---- */
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(18px, 2vw, 24px);
+    }
+    .card {
+      display: flex;
+      align-items: flex-start;
+      gap: clamp(18px, 1.8vw, 26px);
+      background: #242220;
+      border: 1px solid rgba(252, 250, 240, 0.08);
+      border-radius: 20px;
+      padding: clamp(24px, 2.4vw, 32px) clamp(26px, 2.6vw, 36px);
+      transition: border-color var(--dur-base) var(--ease-out),
+                  transform var(--dur-base) var(--ease-out);
+    }
+    .card:hover {
+      border-color: rgba(199, 62, 29, 0.5);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      flex: 0 0 auto;
+      color: var(--c-sinopia);
+      margin-top: 2px;
+    }
+    .card-icon svg { width: 34px; height: 34px; display: block; }
+    .card-headline {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: var(--fs-20);
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      color: var(--c-floral-white);
+      margin: 0 0 8px;
+    }
+    .card-body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--fs-16);
+      line-height: 1.55;
+      color: var(--c-warm-300);
+      margin: 0;
+    }
+
+    @media (max-width: 880px) {
+      .solution-inner { grid-template-columns: 1fr; row-gap: clamp(44px, 7vw, 64px); align-items: start; }
+      .s-headline { max-width: none; }
+      .hl-break { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="solution" data-screen-label="Solution" aria-label="The solution">
+    <div class="solution-inner">
+      <!-- Left column -->
+      <div class="s-left">
+        <h2 class="s-headline">A repeatable job search system<br class="hl-break"> changes everything.</h2>
+        <div class="s-rule" aria-hidden="true"></div>
+        <p class="s-body">The problem isn&rsquo;t effort. Most job seekers are working hard. The problem is that hard work without a structure doesn&rsquo;t compound &mdash; it just exhausts.</p>
+        <p class="s-body">When your search runs on a system, every day builds on the last. You know what to do, you know why you&rsquo;re doing it, and you stop wondering if any of it is working. That&rsquo;s what we build together.</p>
+        <button class="btn-primary">Book Your Job Search Audit</button>
+      </div>
+
+      <!-- Right column: benefit cards -->
+      <div class="cards">
+        <div class="card">
+          <span class="card-icon" aria-hidden="true"><i data-lucide="target"></i></span>
+          <div class="card-content">
+            <h3 class="card-headline">Search with confidence</h3>
+            <p class="card-body">No more guessing what to do next. Your system tells you.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-icon" aria-hidden="true"><i data-lucide="calendar-check"></i></span>
+          <div class="card-content">
+            <h3 class="card-headline">Trust the process</h3>
+            <p class="card-body">Consistency beats intensity. A daily routine outlasts motivation every time.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="card-icon" aria-hidden="true"><i data-lucide="trending-up"></i></span>
+          <div class="card-content">
+            <h3 class="card-headline">Land with less luck</h3>
+            <p class="card-body">The right activities, done repeatedly, create their own momentum.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+  </script>
+</body>
+</html>

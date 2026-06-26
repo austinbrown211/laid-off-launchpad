@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — About Austin</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <script src="assets/image-slot.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+
+    .about {
+      background: #FFFFFF;
+      padding: clamp(60px, 9vh, 112px) clamp(28px, 6vw, 96px);
+    }
+    .about-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: clamp(48px, 6.5vw, 104px);
+      align-items: center;
+    }
+
+    /* ---- Left column: headshot ---- */
+    .headshot {
+      width: 100%;
+      max-width: 400px;
+      height: clamp(352px, 35vw, 474px);
+      align-self: center;
+      justify-self: end;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: var(--bg-surface-sunk);
+      box-shadow: var(--shadow-lg);
+      --placeholder-fg: var(--c-warm-500);
+    }
+
+    /* ---- Right column ---- */
+    .a-headline {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      font-size: clamp(2.1rem, 3.4vw, 3.2rem);
+      line-height: 1.12;
+      letter-spacing: -0.012em;
+      color: var(--fg-ink);
+      margin: 0;
+      max-width: 18ch;
+      text-wrap: balance;
+    }
+    .a-rule {
+      width: 64px; height: 3px;
+      background: var(--c-sinopia);
+      border-radius: 2px;
+      margin: clamp(22px, 2.6vw, 30px) 0 clamp(26px, 3vw, 34px);
+    }
+    .a-body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: var(--fs-18);
+      line-height: 1.72;
+      color: var(--fg-body);
+      margin: 0 0 var(--s-5);
+      max-width: 52ch;
+    }
+    .a-body:last-of-type { margin-bottom: 0; }
+    .a-link {
+      color: var(--c-sinopia);
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .a-link:hover { color: var(--c-sinopia-700); }
+
+    /* Primary CTA — matches the hero / problem / solution pill exactly */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      margin-top: clamp(30px, 3.6vw, 40px);
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 14.5px;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--c-floral-white);
+      background: var(--c-sinopia);
+      border: 1.5px solid transparent;
+      border-radius: var(--r-pill);
+      padding: 17px 32px;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out),
+                  box-shadow var(--dur-fast) var(--ease-out),
+                  transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover {
+      background: var(--c-sinopia-600);
+      box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7);
+    }
+    .btn-primary:active { transform: translateY(1px); }
+
+    @media (max-width: 880px) {
+      .about-inner { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 56px); align-items: start; }
+      .headshot { max-width: 420px; height: clamp(420px, 90vw, 520px); }
+      .a-headline { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="about" data-screen-label="About Austin" aria-label="About Austin">
+    <div class="about-inner">
+      <!-- Left column: headshot -->
+      <image-slot
+        class="headshot"
+        id="austin-headshot"
+        shape="rect"
+        fit="cover"
+        src="assets/austin-headshot.jpg"
+        placeholder="Austin headshot">
+      </image-slot>
+
+      <!-- Right column -->
+      <div class="a-right">
+        <h2 class="a-headline">Hi, I&rsquo;m Austin. I&rsquo;ve been exactly where you are.</h2>
+        <div class="a-rule" aria-hidden="true"></div>
+        <p class="a-body">Each time I was laid off, my employer offered outplacement support. Resume help. Career guidance. None of it answered the one question that actually mattered: what do I do tomorrow?</p>
+        <p class="a-body">That question led me to build a system. And then to build Laid Off Launchpad to share it with people exactly like you. <a class="a-link" href="#">learn more &rarr;</a></p>
+        <button class="btn-primary">Book Your Job Search Audit</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — Client Testimonials</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--c-eerie-black); -webkit-font-smoothing: antialiased; }
+
+    .tst {
+      position: relative;
+      background: var(--c-eerie-black);
+      padding: clamp(72px, 11vh, 132px) clamp(20px, 4vw, 64px);
+      overflow: hidden;
+    }
+    .tst::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: url("assets/solution-watermark.png");
+      background-repeat: repeat;
+      background-size: 620px 620px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .tst-inner { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; }
+
+    /* ---- Header ---- */
+    .tst-head { text-align: center; max-width: 720px; margin: 0 auto clamp(40px, 5vw, 60px); }
+    .tst-eyebrow {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-12); letter-spacing: var(--tracking-xwide);
+      text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 16px;
+    }
+    .tst-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.1rem, 3.4vw, 3.2rem); line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--c-floral-white); margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .tst-intro {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: var(--fs-18); line-height: 1.5;
+      color: rgba(252,250,240,0.62); margin: 0;
+    }
+
+    /* ---- Carousel ---- */
+    .carousel { position: relative; }
+    .viewport { overflow: hidden; }
+    .track {
+      display: flex;
+      align-items: stretch;
+      transition: transform 460ms var(--ease-out);
+      will-change: transform;
+    }
+    .slide {
+      flex: 0 0 auto;
+      width: min(720px, 80vw);
+      padding: 0 clamp(10px, 1.4vw, 18px);
+      transition: opacity 360ms var(--ease-out), transform 360ms var(--ease-out);
+    }
+    .slide:not(.is-active) { opacity: 0.32; transform: scale(0.94); }
+
+    .quote-card {
+      background: var(--bg-surface);
+      border-radius: var(--r-lg);
+      box-shadow: var(--shadow-lg);
+      padding: clamp(36px, 4vw, 56px) clamp(32px, 3.6vw, 56px);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .quote-mark {
+      font-family: var(--font-display);
+      font-size: 48px; line-height: 0.5;
+      color: var(--c-sinopia); opacity: 0.9;
+      margin: 0 0 4px; height: 30px;
+    }
+    .quote-text {
+      font-family: var(--font-serif); font-weight: 500;
+      font-size: clamp(1.02rem, 1.2vw, 1.2rem);
+      line-height: 1.5; letter-spacing: -0.005em;
+      color: var(--fg-ink); margin: 0;
+      text-wrap: pretty;
+    }
+    .quote-foot { margin-top: auto; padding-top: clamp(26px, 3vw, 36px); }
+    .stars { display: flex; gap: 5px; margin-bottom: 18px; }
+    .stars svg { width: 20px; height: 20px; display: block; }
+    .person { display: flex; align-items: center; gap: 14px; }
+    .person-photo {
+      flex: 0 0 auto;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: var(--bg-surface-sunk);
+      border: 1px solid var(--line-soft);
+      display: grid; place-items: center;
+      font-family: var(--font-sans); font-weight: 500;
+      font-size: 9px; letter-spacing: 0.04em; text-transform: uppercase;
+      color: var(--fg-faint); text-align: center; line-height: 1.2;
+      overflow: hidden;
+    }
+    .person-name {
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: var(--fs-18); color: var(--fg-ink);
+    }
+
+    /* ---- Nav arrows ---- */
+    .nav-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      z-index: 3;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: rgba(252,250,240,0.10);
+      border: 1px solid rgba(252,250,240,0.22);
+      backdrop-filter: blur(6px);
+      color: var(--c-floral-white);
+      display: grid; place-items: center; cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+    .nav-arrow:hover { background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .nav-arrow svg { width: 22px; height: 22px; }
+    .nav-prev { left: clamp(-6px, 1vw, 18px); }
+    .nav-next { right: clamp(-6px, 1vw, 18px); }
+
+    /* ---- Dots ---- */
+    .dots { display: flex; justify-content: center; gap: 10px; margin-top: clamp(28px, 3vw, 40px); }
+    .dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: rgba(252,250,240,0.28); border: 0; padding: 0; cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), width var(--dur-fast) var(--ease-out);
+    }
+    .dot.is-active { background: var(--c-sinopia); width: 26px; border-radius: 5px; }
+
+    /* ---- CTA ---- */
+    .tst-cta { display: flex; justify-content: center; margin-top: clamp(40px, 5vw, 60px); }
+    .btn-primary {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14.5px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      padding: 17px 32px; cursor: pointer; white-space: nowrap;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .btn-primary:active { transform: translateY(1px); }
+
+    @media (max-width: 720px) {
+      .slide { width: 86vw; }
+      .nav-arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="tst" data-screen-label="Testimonials" aria-label="Client testimonials">
+    <div class="tst-inner">
+      <div class="tst-head">
+        <p class="tst-eyebrow">Client Experiences</p>
+        <h2 class="tst-headline">What our clients experience</h2>
+        <p class="tst-intro">Real people. Real layoffs. Real progress.</p>
+      </div>
+
+      <div class="carousel">
+        <div class="viewport">
+          <div class="track" id="track"></div>
+        </div>
+
+        <button class="nav-arrow nav-prev" id="prev" aria-label="Previous testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+        </button>
+        <button class="nav-arrow nav-next" id="next" aria-label="Next testimonial">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+        </button>
+
+        <div class="dots" id="dots"></div>
+      </div>
+
+      <div class="tst-cta">
+        <button class="btn-primary">Book Your Job Search Audit</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const DATA = [
+      { name: "Kristen P.", quote: "The Support Crew gave me tools and insights to complement my existing search, and the emotional and mental support to realize the layoff wasn’t a result of my skill set. Austin has been through it and come out on the other side — he was proof that this wasn’t a forever situation, and he brought a level of calm and clarity to a really chaotic time. Together, my cohort provided a place to share the lows of the search without wallowing in them, turning them into productive routine instead." },
+      { name: "Adam M.", quote: "Having others in the Support Crew who were further along in their job search really helped me understand today’s job search. Just having a meeting on the calendar to attend regularly gave me a sense of normalcy. The community gained from Support Crew was exactly what I needed to help me move forward. Austin’s insights on networking and job search/life balance along with adding some accountability were the missing pieces that I had not found in my research." },
+      { name: "Emily K.", quote: "Joining the Accelerator was the best thing I did for myself and my job search after experiencing a layoff. The LAND routine and Support Crew provide structure, community, and friendship during a time when it’s so easy to become untethered. Building connections with peers who are experiencing the same peaks and valleys you are allows you to shed the ‘ever-optimist’ mask you feel beholden to when talking about a job search, which is both refreshing and necessary." },
+      { name: "Joe V.", quote: "Austin’s LAND framework has been my rock throughout my journey, and is a simple yet powerful way to organize your day when your job becomes to look for a job. On a day-to-day basis, it’s easy to forget and do too much (or not enough!) of one aspect, often leading to demoralizing outcomes. But, as Austin explains so well, ‘our routines drive our days.’ The positive effects of LAND multiply with a crew, as everyone needs the reminder that this journey does not have to be done alone." }
+    ];
+
+    const star = '<svg viewBox="0 0 24 24" fill="#C73E1D"><path d="M12 2l2.9 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l7.1-1.01L12 2z"/></svg>';
+
+    const track = document.getElementById('track');
+    const dotsWrap = document.getElementById('dots');
+    const N = DATA.length;
+    const REPEAT = 3;               // [setA][setB][setC] — live in the middle set
+    const MID = N;                  // first index of the middle set
+
+    function buildSlide(d) {
+      const slide = document.createElement('div');
+      slide.className = 'slide';
+      slide.innerHTML =
+        '<div class="quote-card">' +
+          '<div class="quote-mark" aria-hidden="true">&ldquo;</div>' +
+          '<p class="quote-text">' + d.quote + '</p>' +
+          '<div class="quote-foot">' +
+            '<div class="stars" aria-label="5 out of 5 stars">' + star.repeat(5) + '</div>' +
+            '<div class="person">' +
+              '<div class="person-photo">[Client<br>Photo]</div>' +
+              '<span class="person-name">' + d.name + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>';
+      return slide;
+    }
+
+    // Build REPEAT copies of the set so the loop never reaches an edge
+    for (let r = 0; r < REPEAT; r++) {
+      DATA.forEach(d => track.appendChild(buildSlide(d)));
+    }
+    // One dot per real testimonial
+    DATA.forEach((d, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'dot';
+      dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+      dot.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(dot);
+    });
+
+    const slides = [...track.children];
+    const dots = [...dotsWrap.children];
+
+    const KEY = 'lol-testimonial-idx';
+    const saved = parseInt(localStorage.getItem(KEY) || '0', 10);
+    const startReal = (!Number.isNaN(saved) && saved >= 0 && saved < N) ? saved : 0;
+    let pos = MID + startReal;       // absolute slide index within the cloned track
+
+    function realIdx() { return ((pos % N) + N) % N; }
+
+    function position(animate) {
+      track.style.transition = animate ? '' : 'none';
+      const active = slides[pos];
+      const slideW = active.offsetWidth;
+      const vpW = track.parentElement.offsetWidth;
+      const center = active.offsetLeft + slideW / 2;
+      const offset = vpW / 2 - center;
+      track.style.transform = 'translateX(' + offset + 'px)';
+      if (!animate) void track.offsetWidth;
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === pos));
+      dots.forEach((d, i) => d.classList.toggle('is-active', i === realIdx()));
+      localStorage.setItem(KEY, String(realIdx()));
+    }
+
+    // Teleport pos back into the middle set BEFORE animating. The clone sets are
+    // identical, so snapping to the equivalent middle-set slide is invisible —
+    // and it guarantees pos never runs off the ends, no matter how fast you click.
+    function normalizeInstant() {
+      let changed = false;
+      while (pos < N) { pos += N; changed = true; }
+      while (pos >= 2 * N) { pos -= N; changed = true; }
+      if (changed) position(false);
+    }
+
+    function step(delta) {
+      normalizeInstant();
+      pos += delta;
+      position(true);
+    }
+    function goTo(real) {
+      normalizeInstant();
+      let delta = real - realIdx();
+      if (delta > N / 2) delta -= N;
+      if (delta < -N / 2) delta += N;
+      pos += delta;
+      position(true);
+    }
+
+    document.getElementById('prev').addEventListener('click', () => step(-1));
+    document.getElementById('next').addEventListener('click', () => step(1));
+    window.addEventListener('resize', () => position(false));
+
+    function initialRender() { position(false); }
+    if (document.readyState === 'complete') initialRender();
+    else window.addEventListener('load', initialRender);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(initialRender);
+    initialRender();
+  </script>
+</body>
+</html>

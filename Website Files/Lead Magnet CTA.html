@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — Get the Playbook</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: #FFFFFF; -webkit-font-smoothing: antialiased; }
+
+    .lead {
+      background: #FFFFFF;
+      padding: clamp(64px, 9vh, 112px) clamp(28px, 6vw, 96px);
+      display: flex;
+      justify-content: center;
+    }
+    .lead-card {
+      width: 100%;
+      max-width: 1080px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--bg-surface);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 30px 70px -34px rgba(26,26,26,0.32), 0 8px 22px -14px rgba(26,26,26,0.18);
+    }
+
+    /* ---- Left: image ---- */
+    .lead-photo {
+      background-image: url("assets/lead-magnet.jpg");
+      background-size: cover;
+      background-position: 60% center;
+      min-height: 480px;
+    }
+
+    /* ---- Right: form ---- */
+    .lead-form {
+      padding: clamp(38px, 4vw, 60px) clamp(34px, 3.6vw, 56px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .lead-label {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-12); color: var(--c-sinopia);
+      text-transform: uppercase; letter-spacing: var(--tracking-xwide);
+      margin: 0 0 16px;
+    }
+    .lead-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.2rem, 3.4vw, 3.1rem); line-height: 1.04;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0 0 18px;
+    }
+    .lead-sub {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: var(--fs-16); line-height: 1.6;
+      color: var(--fg-body); margin: 0 0 30px; max-width: 42ch;
+    }
+    .lead-sub em { font-style: italic; }
+
+    .lead-field { margin-bottom: 14px; }
+    .lead-field input {
+      width: 100%;
+      font-family: var(--font-sans); font-size: var(--fs-16);
+      color: var(--fg-ink);
+      padding: 15px 20px;
+      background: var(--bg-canvas);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--r-pill);
+      outline: none;
+      transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+    .lead-field input::placeholder { color: var(--fg-faint); }
+    .lead-field input:focus {
+      border-color: var(--c-sinopia);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(199,62,29,0.12);
+    }
+
+    .lead-btn {
+      margin-top: 10px;
+      width: 100%;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14.5px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      padding: 17px 28px; cursor: pointer;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .lead-btn:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .lead-btn:active { transform: translateY(1px); }
+
+    @media (max-width: 820px) {
+      .lead-card { grid-template-columns: 1fr; max-width: 520px; }
+      .lead-photo { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="lead" data-screen-label="Lead Magnet CTA" aria-label="Get the playbook">
+    <div class="lead-card">
+      <div class="lead-photo" role="img" aria-label="Professional working at a desk"></div>
+
+      <form class="lead-form" onsubmit="return false;">
+        <p class="lead-label">Get the Playbook:</p>
+        <h2 class="lead-headline">Job Search Smarter</h2>
+        <p class="lead-sub">5 days to diagnose what&rsquo;s stalling your search and start landing faster <em>(even if you&rsquo;ve already been at it for months)</em>.</p>
+
+        <div class="lead-field">
+          <input type="text" name="first_name" placeholder="First name" aria-label="First name" autocomplete="given-name">
+        </div>
+        <div class="lead-field">
+          <input type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+        </div>
+
+        <button class="lead-btn" type="submit">Send Me the Playbook</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

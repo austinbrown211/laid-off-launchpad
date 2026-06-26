@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — Proof It Works</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--c-eerie-black); -webkit-font-smoothing: antialiased; }
+
+    .rea {
+      position: relative;
+      background: var(--c-eerie-black);
+      padding: clamp(80px, 13vh, 150px) clamp(28px, 6vw, 96px);
+      overflow: hidden;
+    }
+    .rea::before {
+      content: "";
+      position: absolute; inset: 0;
+      background-image: url("assets/solution-watermark.png");
+      background-repeat: repeat;
+      background-size: 620px 620px;
+      opacity: 0.06;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .rea-inner {
+      position: relative; z-index: 1;
+      max-width: 1160px; margin: 0 auto;
+      text-align: center;
+    }
+
+    .rea-eyebrow {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-12); letter-spacing: var(--tracking-xwide);
+      text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 18px;
+    }
+    .rea-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.1rem, 3.6vw, 3.3rem); line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--c-floral-white); margin: 0;
+      text-wrap: balance;
+    }
+
+    /* ---- Logo carousel ---- */
+    .logos {
+      margin: clamp(48px, 6vw, 76px) 0 0;
+      width: 100%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+    .logo-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      gap: clamp(48px, 5vw, 84px);
+      padding-right: clamp(48px, 5vw, 84px);
+      animation: logoscroll 48s linear infinite;
+    }
+    .logo-track img {
+      height: 40px;
+      max-width: 150px;
+      width: auto;
+      object-fit: contain;
+      display: block;
+      opacity: 0.64;
+      flex: 0 0 auto;
+      transition: opacity var(--dur-base) var(--ease-out);
+    }
+    .logo-track img:hover { opacity: 1; }
+    .logo-track img.tall { height: 52px; }
+    @keyframes logoscroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .logo-track { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="rea" data-screen-label="Reassurance" aria-label="Proof it works">
+    <div class="rea-inner">
+      <p class="rea-eyebrow">Proof it works</p>
+      <h2 class="rea-headline">Our clients have landed at&hellip;</h2>
+
+      <div class="logos">
+        <div class="logo-track">
+          <img src="assets/logos/white/siemens.png" alt="Siemens">
+          <img src="assets/logos/white/headspace.png" alt="Headspace">
+          <img src="assets/logos/white/nebraska_medicine.png" class="tall" alt="Nebraska Medicine">
+          <img src="assets/logos/white/resourcepro.png" alt="ReSource Pro">
+          <img src="assets/logos/white/splitit.png" alt="Splitit">
+          <img src="assets/logos/white/lee_enterprises.png" class="tall" alt="Lee Enterprises">
+          <img src="assets/logos/white/findd.png" alt="Findd">
+          <img src="assets/logos/white/ninja_holdings.png" alt="Ninja Holdings">
+          <img src="assets/logos/white/moon_valley_nurseries.png" class="tall" alt="Moon Valley Nurseries">
+          <img src="assets/logos/white/socket_fiber.png" class="tall" alt="Socket Fiber">
+          <img src="assets/logos/white/studio_north.png" class="tall" alt="Studio North">
+          <img src="assets/logos/white/siemens.png" alt="Siemens" aria-hidden="true">
+          <img src="assets/logos/white/headspace.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/nebraska_medicine.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/resourcepro.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/splitit.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/lee_enterprises.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/findd.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/ninja_holdings.png" alt="" aria-hidden="true">
+          <img src="assets/logos/white/moon_valley_nurseries.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/socket_fiber.png" class="tall" alt="" aria-hidden="true">
+          <img src="assets/logos/white/studio_north.png" class="tall" alt="" aria-hidden="true">
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

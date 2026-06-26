@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — How It Works</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: #1A1A1A; -webkit-font-smoothing: antialiased; }
+
+    .hiw {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(48px, 8vh, 96px) clamp(24px, 5vw, 80px);
+      background-image: url("assets/how-it-works-bg.jpg");
+      background-size: 168%;
+      background-position: 88% center;
+      overflow: hidden;
+    }
+    /* Warm, lighter overlay so the photo reads clearly */
+    .hiw::before {
+      content: "";
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(180deg, rgba(60,30,16,0.30) 0%, rgba(40,24,16,0.42) 100%),
+        rgba(199,62,29,0.10);
+      pointer-events: none;
+    }
+
+    /* ---- Frosted glass centerpiece card ---- */
+    .glass {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 736px;
+      background: rgba(252, 250, 240, 0.80);
+      backdrop-filter: blur(18px) saturate(120%);
+      -webkit-backdrop-filter: blur(18px) saturate(120%);
+      border: 1px solid rgba(252, 250, 240, 0.55);
+      border-radius: 28px;
+      box-shadow: 0 40px 90px -30px rgba(26,26,26,0.55), 0 12px 30px -16px rgba(26,26,26,0.35);
+      padding: clamp(36px, 4vw, 56px) clamp(30px, 4vw, 60px) clamp(48px, 5vw, 68px);
+      text-align: center;
+    }
+
+    .glass-domino {
+      width: clamp(96px, 14vw, 132px); height: auto; display: block;
+      margin: 0 auto 22px; opacity: 0.60;
+      transform: scaleX(-1);
+    }
+    .glass-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.4vw, 3rem); line-height: 1.08;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0 0 14px;
+      text-wrap: balance;
+    }
+    .glass-sub {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: var(--fs-18); line-height: 1.55;
+      color: var(--fg-body); margin: 0 auto clamp(30px, 3.4vw, 40px); max-width: 34em;
+      text-wrap: balance;
+    }
+
+    /* ---- Tight stack of white step cards ---- */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-width: 470px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .card {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.4vw, 26px);
+      background: #FFFFFF;
+      border-radius: 16px;
+      padding: clamp(20px, 2.4vw, 26px) clamp(22px, 2.6vw, 30px);
+      box-shadow: 0 6px 16px -10px rgba(26,26,26,0.30);
+      transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px -12px rgba(26,26,26,0.38);
+    }
+    .card-num {
+      flex: 0 0 auto;
+      font-family: var(--font-serif); font-weight: 700;
+      font-size: clamp(2.8rem, 4vw, 3.6rem); line-height: 0.85;
+      color: var(--c-sinopia);
+      letter-spacing: -0.02em;
+      min-width: clamp(36px, 4vw, 48px);
+      text-align: center;
+    }
+    .card-copy { flex: 1 1 auto; }
+    .card-headline {
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: var(--fs-18); line-height: 1.25;
+      letter-spacing: -0.01em; color: var(--fg-ink);
+      margin: 0 0 6px;
+    }
+    .card-body {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: var(--fs-14); line-height: 1.5;
+      color: var(--fg-muted); margin: 0;
+    }
+
+    /* ---- CTA ---- */
+    .glass-cta { margin-top: clamp(30px, 3.4vw, 42px); }
+    .btn-primary {
+      display: inline-flex; align-items: center;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14.5px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      padding: 17px 32px; cursor: pointer; white-space: nowrap;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .btn-primary:active { transform: translateY(1px); }
+
+    @media (max-width: 480px) {
+      .card { gap: 14px; padding: 18px 18px; }
+      .card-num { min-width: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hiw" data-screen-label="How It Works" aria-label="How it works">
+    <div class="glass">
+      <img class="glass-domino" src="assets/dominoes-connector.png" alt="" aria-hidden="true">
+      <h2 class="glass-headline">Here&rsquo;s how it works</h2>
+      <p class="glass-sub">The best results happen when the job search<br>is confident and consistent. We help with both.</p>
+
+      <div class="steps">
+        <article class="card">
+          <div class="card-num" aria-hidden="true">1</div>
+          <div class="card-copy">
+            <h3 class="card-headline">Get the Free Job Search Playbook</h3>
+            <p class="card-body">Start building your search the right way. Five days of practical guidance delivered straight to your inbox.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-num" aria-hidden="true">2</div>
+          <div class="card-copy">
+            <h3 class="card-headline">Book Your Job Search Audit</h3>
+            <p class="card-body">We&rsquo;ll map your situation, identify what&rsquo;s working and what isn&rsquo;t, and build a plan together.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-num" aria-hidden="true">3</div>
+          <div class="card-copy">
+            <h3 class="card-headline">Join the Job Landing Accelerator</h3>
+            <p class="card-body">Execute your search with a proven system, expert coaching, and a community behind you.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="glass-cta">
+        <button class="btn-primary">Book Your Job Search Audit</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

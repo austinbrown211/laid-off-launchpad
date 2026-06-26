@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — Footer</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: #1A1A1A; -webkit-font-smoothing: antialiased; }
+
+    .footer { background: #1A1A1A; }
+    .footer-main {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(56px, 8vh, 92px) clamp(28px, 6vw, 80px) clamp(40px, 5vw, 64px);
+      display: grid;
+      grid-template-columns: 1.05fr 0.85fr 1.1fr;
+      gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+
+    /* ---- Left ---- */
+    .f-logo { height: 76px; width: auto; display: block; margin: 0 0 0 -2px; }
+    .f-tagline {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: var(--fs-16); line-height: 1.6;
+      color: var(--c-warm-300); margin: 20px 0 0; max-width: 32ch;
+    }
+    .f-social {
+      margin-top: 26px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border-radius: var(--r-pill);
+      border: 1px solid rgba(252,250,240,0.18);
+      color: var(--c-warm-300);
+      transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+    }
+    .f-social:hover { color: var(--c-floral-white); background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .f-social svg { width: 19px; height: 19px; display: block; }
+
+    /* ---- Shared column labels ---- */
+    .f-label {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-12); letter-spacing: var(--tracking-xwide);
+      text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 22px;
+    }
+
+    /* ---- Center: menu ---- */
+    .f-nav { display: flex; flex-direction: column; gap: 14px; }
+    .f-nav a {
+      font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16);
+      color: var(--c-warm-200); text-decoration: none; width: fit-content;
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .f-nav a:hover { color: var(--c-floral-white); }
+    .f-nav a.is-cta { color: var(--c-warm-200); font-weight: 400; }
+    .f-nav a.is-cta:hover { color: var(--c-floral-white); }
+
+    /* ---- Right: contact ---- */
+    .f-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .f-form .full { grid-column: 1 / -1; }
+    .f-form input, .f-form textarea {
+      width: 100%;
+      font-family: var(--font-sans); font-size: var(--fs-16);
+      color: var(--c-floral-white);
+      background: #211F1D;
+      border: 1px solid rgba(252,250,240,0.07);
+      border-radius: var(--r-md);
+      padding: 13px 16px; outline: none;
+      transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+    }
+    .f-form textarea { min-height: 110px; resize: vertical; }
+    .f-form input::placeholder, .f-form textarea::placeholder { color: var(--c-floral-white); opacity: 0.92; }
+    .f-form input:focus, .f-form textarea:focus {
+      border-color: var(--c-sinopia);
+      box-shadow: 0 0 0 3px rgba(199,62,29,0.18);
+    }
+    .f-submit {
+      grid-column: 1 / -1; justify-self: start; margin-top: 4px;
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 14px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      padding: 15px 38px; cursor: pointer;
+      transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .f-submit:hover { background: var(--c-sinopia-600); }
+    .f-submit:active { transform: translateY(1px); }
+
+    /* ---- Bottom bar ---- */
+    .f-bottom {
+      border-top: 1px solid rgba(252,250,240,0.12);
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(22px, 2.6vw, 30px) clamp(28px, 6vw, 80px);
+    }
+    .f-copy {
+      font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-14);
+      color: var(--c-warm-400); margin: 0; text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .footer-main { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+    }
+  </style>
+</head>
+<body>
+  <footer class="footer" data-screen-label="Footer">
+    <div class="footer-main">
+      <!-- Left -->
+      <div class="f-brand">
+        <img class="f-logo" src="assets/logo-cream-brush-cropped.png" alt="Laid Off Launchpad">
+        <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
+        <a class="f-social" href="#" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Center -->
+      <nav class="f-menu" aria-label="Footer">
+        <p class="f-label">Menu</p>
+        <div class="f-nav">
+          <a href="#">Homepage</a>
+          <a href="#">About</a>
+          <a href="#">Articles</a>
+          <a href="#">The Accelerator</a>
+          <a class="is-cta" href="#">Book Your Job Search Audit</a>
+          <a href="#">Privacy Policy &amp; Terms of Use</a>
+        </div>
+      </nav>
+
+      <!-- Right -->
+      <div class="f-contact">
+        <p class="f-label">Contact Us</p>
+        <form class="f-form" onsubmit="return false;">
+          <input class="full" type="text" placeholder="Full name" aria-label="Full name" autocomplete="name">
+          <input class="full" type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea class="full" placeholder="Message" aria-label="Message"></textarea>
+          <button class="f-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <p class="f-copy">Copyright &copy; 2026 &mdash; Laid Off Launchpad. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

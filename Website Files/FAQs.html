@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laid Off Launchpad — FAQs</title>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: #FCFAF0; -webkit-font-smoothing: antialiased; }
+
+    .faq {
+      background: #FCFAF0;
+      padding: clamp(72px, 11vh, 132px) clamp(28px, 6vw, 96px);
+    }
+    .faq-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      column-gap: clamp(48px, 7vw, 110px);
+      align-items: center;
+    }
+
+    /* ---- Left column ---- */
+    .faq-eyebrow {
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-12); letter-spacing: var(--tracking-xwide);
+      text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 18px;
+    }
+    .faq-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.2vw, 3rem); line-height: 1.12;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0;
+      max-width: 14ch; text-wrap: balance;
+    }
+
+    /* ---- Right column: accordion ---- */
+    .acc { display: flex; flex-direction: column; }
+    .acc-item { border-top: 1px solid var(--line-soft); }
+    .acc-item:last-child { border-bottom: 1px solid var(--line-soft); }
+    .acc-q {
+      width: 100%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px;
+      background: none; border: none; cursor: pointer;
+      text-align: left;
+      padding: clamp(22px, 2.4vw, 30px) 0;
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: clamp(1.05rem, 1.4vw, 1.28rem); line-height: 1.35;
+      letter-spacing: -0.01em; color: var(--fg-ink);
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .acc-q:hover { color: var(--c-sinopia); }
+    .acc-icon {
+      flex: 0 0 auto;
+      position: relative; width: 22px; height: 22px;
+      margin-top: 3px;
+    }
+    .acc-icon::before, .acc-icon::after {
+      content: ""; position: absolute; background: var(--c-sinopia);
+      border-radius: 2px;
+      transition: transform var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out);
+    }
+    .acc-icon::before { top: 50%; left: 0; width: 100%; height: 2.4px; transform: translateY(-50%); }
+    .acc-icon::after { left: 50%; top: 0; width: 2.4px; height: 100%; transform: translateX(-50%); }
+    .acc-item.open .acc-icon::after { transform: translateX(-50%) scaleY(0); opacity: 0; }
+
+    .acc-panel {
+      display: none;
+    }
+    .acc-item.open .acc-panel {
+      display: block;
+    }
+    .acc-item.open .acc-panel.animating {
+      animation: accFade var(--dur-base, 200ms) var(--ease-out);
+    }
+    @keyframes accFade {
+      from { opacity: 0; transform: translateY(-4px); }
+      to   { opacity: 1; transform: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .acc-item.open .acc-panel.animating { animation: none; }
+    }
+    .acc-a {
+      font-family: var(--font-body); font-weight: 400;
+      font-size: var(--fs-16); line-height: 1.66;
+      color: var(--fg-body); margin: 0;
+      padding: 0 64px clamp(24px, 2.6vw, 32px) 0;
+      max-width: 60ch;
+    }
+
+    @media (max-width: 860px) {
+      .faq-inner { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 56px); }
+      .faq-headline { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <section class="faq" data-screen-label="FAQs" aria-label="Frequently asked questions">
+    <div class="faq-inner">
+      <!-- Left column -->
+      <div class="faq-left">
+        <p class="faq-eyebrow">Questions</p>
+        <h2 class="faq-headline">Frequently Asked Questions</h2>
+      </div>
+
+      <!-- Right column -->
+      <div class="acc">
+        <div class="acc-item open">
+          <button class="acc-q" aria-expanded="true">
+            How is this different from the outplacement services my employer offered?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">Outplacement services are built for scale. They work for everyone, which means they&rsquo;re often limited to resume help and general career coaching. Those things have value, but they don&rsquo;t answer the question that actually drives results: what should I do tomorrow, and the day after that? The Job Landing Accelerator is built around establishing a job search routine &mdash; something no outplacement service we&rsquo;ve encountered is focused on. That&rsquo;s the difference.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            How long is the program?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">The Job Landing Accelerator runs 12 weeks with weekly group sessions. The curriculum is front-loaded so you build your foundation early and spend the back half of the program executing with support and accountability behind you.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            What if I land a job before the program ends?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">That&rsquo;s the goal. If you land early, you&rsquo;re welcome to stay in the cohort through the transition &mdash; onboarding a new role is its own challenge and the community will still be valuable. Either way, landing fast is a win we&rsquo;ll celebrate together.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            Do you offer a guarantee?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">Yes. If you complete the curriculum, show up to the sessions, and commit to your routine for the first six weeks &mdash; and you&rsquo;re still not satisfied &mdash; we&rsquo;ll refund your investment, no questions asked. The guarantee exists because we&rsquo;re confident the program works when you work it. And because we&rsquo;d rather you walk away whole than feel like it wasn&rsquo;t worth it.</p>
+          </div></div>
+        </div>
+
+        <div class="acc-item">
+          <button class="acc-q" aria-expanded="false">
+            What if I&rsquo;m not sure yet?
+            <span class="acc-icon" aria-hidden="true"></span>
+          </button>
+          <div class="acc-panel"><div class="acc-panel-inner">
+            <p class="acc-a">That&rsquo;s exactly what the Job Search Audit is for. It&rsquo;s a no-pressure conversation where we map your situation and figure out together whether the Job Landing Accelerator is the right fit. No obligation. Just clarity.</p>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.querySelectorAll('.acc-item').forEach(function (item) {
+      var btn = item.querySelector('.acc-q');
+      var panel = item.querySelector('.acc-panel');
+      panel.addEventListener('animationend', function () {
+        panel.classList.remove('animating');
+      });
+      btn.addEventListener('click', function () {
+        var isOpen = item.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        if (isOpen) {
+          panel.classList.add('animating');
+        } else {
+          panel.classList.remove('animating');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
