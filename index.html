@@ -134,7 +134,7 @@
 
     /* ============ Problem Statement ============ */
     .problem {
-      background: #F9F6F1;
+      background: #FCFAF0;
       padding: clamp(72px, 11vh, 140px) clamp(28px, 6vw, 96px);
     }
     .problem-inner { max-width: 1180px; margin: 0 auto; }
@@ -566,6 +566,83 @@
       color: var(--c-warm-400); margin: 0; text-align: center;
     }
 
+    /* ============ About Austin (homepage) ============ */
+    .austin { background: #FFFFFF; padding: clamp(72px, 11vh, 132px) clamp(28px, 6vw, 96px); }
+    .austin-inner {
+      max-width: 1180px; margin: 0 auto;
+      display: grid; grid-template-columns: 0.82fr 1.18fr;
+      column-gap: clamp(56px, 7vw, 100px); align-items: center;
+    }
+    .austin-photo {
+      display: block; width: 100%; max-width: 380px; height: auto; aspect-ratio: 3 / 4;
+      object-fit: cover; object-position: center top;
+      border-radius: var(--r-lg); overflow: hidden;
+      box-shadow: var(--shadow-lg); background: var(--bg-surface-sunk); margin-left: auto;
+    }
+    .austin-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.2vw, 3rem); line-height: 1.12;
+      letter-spacing: -0.015em; color: var(--fg-ink); margin: 0;
+    }
+    .austin-rule {
+      width: 64px; height: 3px; background: var(--c-sinopia); border-radius: 2px;
+      margin: clamp(22px, 2.8vw, 32px) 0;
+    }
+    .austin-body {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-18);
+      line-height: 1.66; color: var(--fg-body); margin: 0 0 1.1em; max-width: 50ch;
+    }
+    .austin-body:last-of-type { margin-bottom: 0; }
+    .austin-link {
+      color: var(--c-sinopia); text-decoration: none; font-weight: 500;
+      transition: color var(--dur-fast) var(--ease-out);
+    }
+    .austin-link:hover { color: var(--c-sinopia-600); }
+
+    /* ============ Job Landing Accelerator ============ */
+    .accel { background: #FCFAF0; padding: clamp(80px, 12vh, 148px) clamp(28px, 6vw, 96px); }
+    .accel-inner { max-width: 1100px; margin: 0 auto; }
+    .accel-eyebrow {
+      font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
+      letter-spacing: var(--tracking-xwide); text-transform: uppercase;
+      color: var(--c-sinopia); margin: 0 0 18px; text-align: center;
+    }
+    .accel-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.2rem, 3.6vw, 3.4rem); line-height: 1.1;
+      letter-spacing: -0.015em; color: var(--fg-ink);
+      margin: 0; text-align: center; text-wrap: balance;
+    }
+    .accel-sub {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-18);
+      line-height: 1.6; color: var(--fg-body);
+      margin: clamp(18px, 2.2vw, 26px) auto 0; max-width: 58ch;
+      text-align: center; text-wrap: pretty;
+    }
+    .accel-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: clamp(40px, 5vw, 64px) clamp(44px, 6vw, 88px);
+      margin-top: clamp(52px, 7vw, 80px);
+    }
+    .accel-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 12px; }
+    .accel-icon { color: var(--c-sinopia); display: inline-flex; align-items: center; justify-content: center; }
+    .accel-icon svg { width: 38px; height: 38px; display: block; }
+    .accel-label {
+      font-family: var(--font-sans); font-weight: 700; font-size: var(--fs-18);
+      line-height: 1.25; letter-spacing: -0.01em; color: var(--fg-ink); margin: 4px 0 0;
+    }
+    .accel-desc {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
+      line-height: 1.5; color: var(--fg-body); margin: 0;
+    }
+    .accel-cta { display: flex; justify-content: center; margin-top: clamp(52px, 7vw, 72px); }
+
+    /* FAQ intro */
+    .faq-intro {
+      font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
+      line-height: 1.6; color: var(--fg-body); margin: 16px 0 0; max-width: 32ch;
+    }
+
     /* ============ Responsive ============ */
     @media (max-width: 860px) {
       .nav-links { display: none; }
@@ -577,6 +654,9 @@
       .solution-inner { grid-template-columns: 1fr; row-gap: clamp(44px, 7vw, 64px); align-items: start; }
       .hl-break { display: none; }
       .s-headline { max-width: none; }
+      .austin-inner { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 56px); }
+      .austin-photo { max-width: 320px; margin: 0 auto; }
+      .accel-grid { grid-template-columns: repeat(2, 1fr); }
       .faq-inner { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 56px); }
       .faq-headline { max-width: none; }
       .lead-card { grid-template-columns: 1fr; max-width: 520px; }
@@ -598,7 +678,7 @@
   <!-- ===== Nav ===== -->
   <nav class="nav" aria-label="Primary">
     <a href="index.html" aria-label="Laid Off Launchpad home">
-      <img class="nav-logo" src="./images/LOL%20Logo_500px_Transparent.png" alt="Laid Off Launchpad"
+      <img class="nav-logo" src="./images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad"
            onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')">
       <span class="nav-logo-text" hidden>Laid Off Launchpad</span>
     </a>
@@ -606,7 +686,7 @@
       <div class="nav-links">
         <a href="about.html">About</a>
         <a href="essays.html">Articles</a>
-        <a href="#">The Accelerator</a>
+        <a href="#accelerator">The Accelerator</a>
       </div>
       <button class="btn-primary btn-sm">Book Your Job Search Audit</button>
     </div>
@@ -615,9 +695,8 @@
   <!-- ===== Hero ===== -->
   <section class="hero" aria-label="Hero">
     <div class="hero-inner">
-      <p class="hero-eyebrow">Job Landing Accelerator</p>
-      <h1 class="hero-headline">Your job search is a job. We&rsquo;ll help you run it.</h1>
-      <p class="hero-sub">Stop wondering what to do next. Build a repeatable daily system and land with confidence.</p>
+      <h1 class="hero-headline">Turn your layoff into a launchpad.</h1>
+      <p class="hero-sub">Helping job seekers land faster with a repeatable daily system.</p>
       <div class="hero-ctas">
         <button class="btn-primary">Book Your Job Search Audit</button>
         <button class="btn-ghost">Get the Free Playbook</button>
@@ -734,6 +813,66 @@
     </div>
   </section>
 
+  <!-- ===== About Austin ===== -->
+  <section class="austin" aria-label="About Austin">
+    <div class="austin-inner">
+      <div class="austin-aside">
+        <img class="austin-photo" src="./images/AB_Headshot.jpg" alt="Austin Brown, founder of Laid Off Launchpad">
+      </div>
+      <div class="austin-copy">
+        <h2 class="austin-headline">Hi, I&rsquo;m Austin. I&rsquo;ve been exactly where you are.</h2>
+        <div class="austin-rule" aria-hidden="true"></div>
+        <p class="austin-body">Each time I was laid off, my employer offered outplacement support. Resume help. Career guidance. None of it answered the one question that actually mattered: what do I do tomorrow?</p>
+        <p class="austin-body">That question led me to build a system. And then to build Laid Off Launchpad to share it with people exactly like you. <a class="austin-link" href="about.html">learn more &rarr;</a></p>
+        <button class="btn-primary" style="margin-top: clamp(28px, 3.6vw, 40px);">Book Your Job Search Audit</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Job Landing Accelerator ===== -->
+  <section class="accel" id="accelerator" aria-label="The Job Landing Accelerator">
+    <div class="accel-inner">
+      <p class="accel-eyebrow">The Program</p>
+      <h2 class="accel-headline">What is the Job Landing Accelerator?</h2>
+      <p class="accel-sub">Our flagship group coaching program gives you the knowledge, the tools, and the community to run your job search with confidence &mdash; and land faster.</p>
+      <div class="accel-grid">
+        <div class="accel-item">
+          <span class="accel-icon" aria-hidden="true"><i data-lucide="compass"></i></span>
+          <p class="accel-label">Career Clarity</p>
+          <p class="accel-desc">Start with a target, not a prayer. Every client gets a dedicated clarity session from day one.</p>
+        </div>
+        <div class="accel-item">
+          <span class="accel-icon" aria-hidden="true"><i data-lucide="award"></i></span>
+          <p class="accel-label">Your Story and Positioning</p>
+          <p class="accel-desc">Know your value and say it with confidence &mdash; in your resume, your LinkedIn, and every introduction.</p>
+        </div>
+        <div class="accel-item">
+          <span class="accel-icon" aria-hidden="true"><i data-lucide="target"></i></span>
+          <p class="accel-label">Application Strategy</p>
+          <p class="accel-desc">Apply early, apply right, get noticed. Fewer applications. Better targeting. More traction.</p>
+        </div>
+        <div class="accel-item">
+          <span class="accel-icon" aria-hidden="true"><i data-lucide="users"></i></span>
+          <p class="accel-label">Networking Strategy</p>
+          <p class="accel-desc">Build the relationships that get you hired &mdash; through real community, not transactions.</p>
+        </div>
+        <div class="accel-item">
+          <span class="accel-icon" aria-hidden="true"><i data-lucide="mic"></i></span>
+          <p class="accel-label">Interview and Negotiation</p>
+          <p class="accel-desc">Tell great stories, walk away with the right offer, and negotiate with confidence.</p>
+        </div>
+        <div class="accel-item">
+          <span class="accel-icon" aria-hidden="true"><i data-lucide="sun"></i></span>
+          <p class="accel-label">Energy and Rejuvenation</p>
+          <p class="accel-desc">Show up tomorrow and the day after that &mdash; with a rejuvenation routine built into your process.</p>
+        </div>
+      </div>
+      <div class="accel-cta">
+        <button class="btn-primary">See If This Is Right For You</button>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== Testimonials ===== -->
   <section class="tst" aria-label="Client testimonials">
     <div class="tst-inner">
@@ -753,9 +892,6 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
         </button>
         <div class="dots" id="dots"></div>
-      </div>
-      <div class="tst-cta">
-        <button class="btn-primary">Book Your Job Search Audit</button>
       </div>
     </div>
   </section>
@@ -836,6 +972,7 @@
       <div class="faq-left">
         <p class="faq-eyebrow">Questions</p>
         <h2 class="faq-headline">Frequently Asked Questions</h2>
+        <p class="faq-intro">You probably have questions. Good. Here are the ones we hear most often &mdash; and if yours isn&rsquo;t here, the audit call is the right place to ask it.</p>
       </div>
       <div class="acc">
         <div class="acc-item open">
@@ -871,7 +1008,7 @@
             <span class="acc-icon" aria-hidden="true"></span>
           </button>
           <div class="acc-panel"><div class="acc-panel-inner">
-            <p class="acc-a">Yes. If you complete the curriculum, show up to the sessions, and commit to your routine for the first six weeks &mdash; and you&rsquo;re still not satisfied &mdash; we&rsquo;ll refund your investment, no questions asked. The guarantee exists because we&rsquo;re confident the program works when you work it.</p>
+            <p class="acc-a">Yes. If you complete the curriculum, show up to the sessions, and commit to your routine for the first six weeks &mdash; and you&rsquo;re still not satisfied &mdash; we&rsquo;ll refund your investment, no questions asked. The guarantee exists because we&rsquo;re confident the program works when you work it. And because we&rsquo;d rather you walk away whole than feel like it wasn&rsquo;t worth it.</p>
           </div></div>
         </div>
         <div class="acc-item">
@@ -910,7 +1047,7 @@
   <footer class="footer">
     <div class="footer-main">
       <div class="f-brand">
-        <img class="f-logo" src="./images/LOL%20Logo_500px_Transparent.png" alt="Laid Off Launchpad">
+        <img class="f-logo" src="./images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad">
         <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
         <a class="f-social" href="#" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -924,7 +1061,7 @@
           <a href="index.html">Homepage</a>
           <a href="about.html">About</a>
           <a href="essays.html">Articles</a>
-          <a href="#">The Accelerator</a>
+          <a href="#accelerator">The Accelerator</a>
           <a href="#">Book Your Job Search Audit</a>
           <a href="#">Privacy Policy &amp; Terms of Use</a>
         </div>
