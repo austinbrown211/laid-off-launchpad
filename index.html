@@ -69,6 +69,7 @@
       background-image: url("./images/Hero%20Image.jpg");
       background-size: cover; background-position: center 35%;
       min-height: 100vh; display: flex; align-items: center; overflow: hidden;
+      margin-bottom: 0;
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
@@ -103,7 +104,7 @@
 
     /* ============ Value Prop Strip ============ */
     .strip-wrap {
-      position: relative; z-index: 5;
+      position: relative; z-index: 5; display: block;
       padding: 0 clamp(24px, 5vw, 72px);
       margin-top: -52px; margin-bottom: -52px;
     }
@@ -114,9 +115,9 @@
       box-shadow: 0 -16px 36px -20px rgba(26,26,26,0.30),
                   0 22px 48px -22px rgba(26,26,26,0.34),
                   0 4px 10px -6px rgba(26,26,26,0.10);
-      padding: clamp(28px, 3.4vw, 44px) clamp(32px, 4vw, 64px);
+      padding: clamp(28px, 3.4vw, 44px) clamp(48px, 6vw, 88px);
       display: grid; grid-template-columns: 1fr auto 1fr auto 1fr;
-      align-items: center; gap: clamp(20px, 3vw, 48px);
+      align-items: center; gap: clamp(16px, 2.5vw, 40px);
     }
     .vp-item { display: flex; align-items: center; gap: 18px; justify-content: center; }
     .vp-check {
@@ -181,13 +182,14 @@
     }
     .solution-inner {
       position: relative; z-index: 1; max-width: 1180px; margin: 0 auto;
-      display: grid; grid-template-columns: 1.12fr 0.88fr;
+      display: grid; grid-template-columns: 0.88fr 1.12fr;
       column-gap: clamp(40px, 5vw, 84px); align-items: center;
     }
     .s-headline {
       font-family: var(--font-serif); font-weight: 600;
-      font-size: clamp(2.2rem, 3.6vw, 3.4rem); line-height: 1.1;
+      font-size: clamp(1.9rem, 3.2vw, 2.8rem); line-height: 1.1;
       letter-spacing: -0.015em; color: var(--c-floral-white); margin: 0;
+      text-wrap: balance;
     }
     .hl-break { display: inline; }
     .s-rule {
@@ -509,7 +511,7 @@
       display: grid; grid-template-columns: 1.05fr 0.85fr 1.1fr;
       gap: clamp(40px, 6vw, 96px); align-items: start;
     }
-    .f-logo { height: 96px; width: auto; display: block; margin: 0 0 0 -2px; }
+    .f-logo { width: 160px; height: auto; display: block; margin: 0 0 0 -2px; }
     .f-tagline {
       font-family: var(--font-body); font-weight: 400; font-size: var(--fs-16);
       line-height: 1.6; color: var(--c-warm-300); margin: 20px 0 0; max-width: 32ch;
@@ -638,11 +640,13 @@
     .accel-cta { display: flex; justify-content: center; margin-top: clamp(52px, 7vw, 72px); }
 
     /* ============ Responsive ============ */
-    @media (max-width: 860px) {
-      .nav-links { display: none; }
+    @media (max-width: 960px) {
       .strip-card { grid-template-columns: 1fr; gap: 20px; justify-items: start; }
       .vp-item { justify-content: flex-start; }
       .vp-divider { width: 100%; height: 1px; margin: 0; }
+    }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
       .problem-cols { grid-template-columns: 1fr; row-gap: clamp(40px, 7vw, 64px); }
       .p-headline { max-width: none; }
       .solution-inner { grid-template-columns: 1fr; row-gap: clamp(44px, 7vw, 64px); align-items: start; }
@@ -774,13 +778,6 @@
   <!-- ===== Solution ===== -->
   <section class="solution" aria-label="The solution">
     <div class="solution-inner">
-      <div class="s-left">
-        <h2 class="s-headline">A repeatable job search system<br class="hl-break"> changes everything.</h2>
-        <div class="s-rule" aria-hidden="true"></div>
-        <p class="s-body">The problem isn&rsquo;t effort. Most job seekers are working hard. The problem is that hard work without a structure doesn&rsquo;t compound &mdash; it just exhausts.</p>
-        <p class="s-body">When your search runs on a system, every day builds on the last. You know what to do, you know why you&rsquo;re doing it, and you stop wondering if any of it is working. That&rsquo;s what we build together.</p>
-        <button class="btn-primary" style="margin-top: clamp(32px, 4vw, 44px);">Book Your Job Search Audit</button>
-      </div>
       <div class="sol-cards">
         <div class="sol-card">
           <span class="sol-card-icon" aria-hidden="true"><i data-lucide="target"></i></span>
@@ -803,6 +800,13 @@
             <p class="sol-card-body">The right activities, done repeatedly, create their own momentum.</p>
           </div>
         </div>
+      </div>
+      <div class="s-left">
+        <h2 class="s-headline">A repeatable job search system<br class="hl-break"> changes everything.</h2>
+        <div class="s-rule" aria-hidden="true"></div>
+        <p class="s-body">The problem isn&rsquo;t effort. Most job seekers are working hard. The problem is that hard work without a structure doesn&rsquo;t compound &mdash; it just exhausts.</p>
+        <p class="s-body">When your search runs on a system, every day builds on the last. You know what to do, you know why you&rsquo;re doing it, and you stop wondering if any of it is working. That&rsquo;s what we build together.</p>
+        <button class="btn-primary" style="margin-top: clamp(32px, 4vw, 44px);">Book Your Job Search Audit</button>
       </div>
     </div>
   </section>
