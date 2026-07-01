@@ -67,8 +67,8 @@
       position: relative;
       background-color: var(--c-eerie-black);
       background-image: url("./images/Hero%20Image.jpg");
-      background-size: cover; background-position: center 35%;
-      min-height: 100vh; display: flex; align-items: center; overflow: hidden;
+      background-size: cover; background-position: center top;
+      min-height: 80vh; display: flex; align-items: flex-start; overflow: hidden;
       margin-bottom: 0; padding-bottom: 0; border-bottom: none;
     }
     .hero::before {
@@ -78,7 +78,7 @@
     }
     .hero-inner {
       position: relative; z-index: 1; width: 100%; max-width: 1180px; margin: 0 auto;
-      padding: clamp(120px, 16vh, 170px) clamp(28px, 6vw, 96px) clamp(96px, 12vh, 140px);
+      padding: clamp(72px, 10vh, 110px) clamp(28px, 6vw, 96px) clamp(56px, 7vh, 80px);
     }
     .hero-eyebrow {
       font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
@@ -392,12 +392,12 @@
       animation: logoscroll 48s linear infinite;
     }
     .logo-track img {
-      height: 40px; max-width: 150px; width: auto; object-fit: contain;
+      height: 56px; max-width: 210px; width: auto; object-fit: contain;
       display: block; opacity: 0.64; flex: 0 0 auto;
       transition: opacity var(--dur-base) var(--ease-out);
     }
     .logo-track img:hover { opacity: 1; }
-    .logo-track img.tall { height: 52px; }
+    .logo-track img.tall { height: 73px; }
     @keyframes logoscroll {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
