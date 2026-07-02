@@ -6,6 +6,7 @@
   <title>Laid Off Launchpad — About</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
   <style>
     *, *::before, *::after { box-sizing: border-box; }
@@ -50,7 +51,7 @@
 
     .hero {
       position: relative; background: var(--c-eerie-black);
-      min-height: 40vh; display: flex; align-items: center; justify-content: center;
+      min-height: 300px; display: flex; align-items: center; justify-content: center;
       padding: clamp(130px, 15vh, 160px) clamp(28px, 6vw, 80px) clamp(48px, 7vh, 80px);
       text-align: center;
     }
@@ -81,12 +82,12 @@
       background: var(--bg-surface-sunk); box-shadow: var(--shadow-lg);
     }
     .story-copy p.story-sign {
-      font-family: var(--font-display); font-weight: 300;
+      font-family: 'Permanent Marker', cursive !important;
       font-size: clamp(1.6rem, 2.3vw, 2.1rem); color: var(--c-sinopia);
       margin: 0.55em 0 0; line-height: 1; text-align: left;
     }
     .story-copy p.story-greeting {
-      font-family: var(--font-display); font-weight: 300;
+      font-family: 'Permanent Marker', cursive !important;
       font-size: clamp(1.6rem, 2.3vw, 2.1rem); color: var(--c-sinopia);
       margin: 0 0 0.5em; line-height: 1; text-align: left;
     }
@@ -106,6 +107,7 @@
     .help-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
       column-gap: clamp(32px, 4vw, 64px); row-gap: clamp(32px, 3.6vw, 48px);
+      margin-left: auto; margin-right: auto; width: fit-content;
     }
     .help-item { display: flex; flex-direction: column; gap: 10px; }
     .help-icon { color: var(--c-sinopia); width: 30px; height: 30px; display: inline-flex; align-items: center; justify-content: center; }
@@ -259,7 +261,7 @@
       <div class="f-brand">
         <img class="f-logo" src="./images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad">
         <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
-        <a class="f-social" href="#" aria-label="LinkedIn">
+        <a class="f-social" href="https://www.linkedin.com/in/brownaustin/" aria-label="LinkedIn">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path></svg>
         </a>
       </div>
