@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy &amp; Terms of Use — Laid Off Launchpad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--c-floral-white); -webkit-font-smoothing: antialiased; }
+
+    .nav {
+      position: absolute; top: 0; left: 0; right: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px clamp(28px, 5vw, 72px);
+    }
+    .nav-logo { height: 128px; width: auto; display: block; margin-left: -12px; }
+    .nav-logo-text {
+      font-family: var(--font-serif); font-weight: 600; font-size: 1.3rem;
+      color: var(--c-floral-white); letter-spacing: -0.01em; line-height: 1.2;
+      max-width: 180px; text-wrap: balance;
+    }
+    .nav-right { display: flex; align-items: center; gap: clamp(22px, 3vw, 40px); }
+    .nav-links { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 38px); }
+    .nav-links a {
+      font-family: var(--font-sans); font-weight: 500; font-size: 15px;
+      color: rgba(252,250,240,0.82); text-decoration: none;
+      padding-bottom: 3px; border-bottom: 1.5px solid transparent;
+      transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+    .nav-links a:hover, .nav-links a.is-active { color: var(--c-floral-white); border-bottom-color: var(--c-sinopia); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans); font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      cursor: pointer; white-space: nowrap;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-sm { font-size: 13px; letter-spacing: 0.14em; padding: 11px 22px; }
+
+    .hero {
+      position: relative; background: var(--c-eerie-black);
+      min-height: 360px; display: flex; align-items: center; justify-content: center;
+      padding: clamp(130px, 15vh, 160px) clamp(28px, 6vw, 80px) clamp(48px, 7vh, 80px);
+      text-align: center;
+    }
+    .hero-headline {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2rem, 3.4vw, 3.1rem); line-height: 1.16;
+      letter-spacing: -0.01em; color: var(--c-floral-white);
+      margin: 0; max-width: 24ch; text-wrap: balance;
+    }
+
+    .policy-section {
+      background: #FFFFFF;
+      padding: 80px 40px;
+    }
+    .policy-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .policy-inner h2 {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: 28px; line-height: 1.2; letter-spacing: -0.01em;
+      color: var(--fg-ink); margin: 64px 0 10px;
+    }
+    .policy-inner h2:first-child { margin-top: 0; }
+    .section-rule {
+      width: 40px; height: 2px;
+      background: #C73E1D; border: none;
+      margin: 0 0 24px;
+    }
+    .policy-inner h3 {
+      font-family: var(--font-sans); font-weight: 700;
+      font-size: 18px; line-height: 1.3;
+      color: var(--fg-ink); margin: 32px 0 8px;
+    }
+    .policy-inner p {
+      font-family: var(--font-sans); font-weight: 400;
+      font-size: 16px; line-height: 1.8;
+      color: var(--fg-body); margin: 0 0 16px;
+    }
+    .policy-inner p.policy-date {
+      font-size: 14px; color: var(--fg-muted); margin-bottom: 28px;
+    }
+    .policy-inner p strong { color: var(--fg-ink); }
+    .policy-divider {
+      border: none; border-top: 1px solid var(--line-soft);
+      margin: 64px 0;
+    }
+
+    .footer { background: #1A1A1A; }
+    .footer-main {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(56px, 8vh, 92px) clamp(28px, 6vw, 80px) clamp(40px, 5vw, 64px);
+      display: grid; grid-template-columns: 1.05fr 0.85fr 1.1fr;
+      gap: clamp(40px, 6vw, 96px); align-items: start;
+    }
+    .f-logo { width: 160px; height: auto; display: block; margin: 0 0 0 -2px; }
+    .f-tagline { font-family: var(--font-body); font-size: var(--fs-16); line-height: 1.6; color: var(--c-warm-300); margin: 20px 0 0; max-width: 32ch; }
+    .f-social { margin-top: 26px; display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: var(--r-pill); border: 1px solid rgba(252,250,240,0.18); color: var(--c-warm-300); transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out); }
+    .f-social:hover { color: var(--c-floral-white); background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .f-social svg { width: 19px; height: 19px; display: block; }
+    .f-label { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 22px; }
+    .f-nav { display: flex; flex-direction: column; gap: 14px; }
+    .f-nav a { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16); color: var(--c-warm-200); text-decoration: none; width: fit-content; transition: color var(--dur-fast) var(--ease-out); }
+    .f-nav a:hover { color: var(--c-floral-white); }
+    .f-form { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .f-form input, .f-form textarea { width: 100%; font-family: var(--font-sans); font-size: var(--fs-16); color: var(--c-floral-white); background: #211F1D; border: 1px solid rgba(252,250,240,0.07); border-radius: var(--r-md); padding: 13px 16px; outline: none; transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+    .f-form textarea { min-height: 110px; resize: vertical; }
+    .f-form input::placeholder, .f-form textarea::placeholder { color: var(--c-floral-white); opacity: 0.92; }
+    .f-form input:focus, .f-form textarea:focus { border-color: var(--c-sinopia); box-shadow: 0 0 0 3px rgba(199,62,29,0.18); }
+    .f-submit { grid-column: 1 / -1; justify-self: start; margin-top: 4px; font-family: var(--font-sans); font-weight: 700; font-size: 14px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1; color: var(--c-floral-white); background: var(--c-sinopia); border: 1.5px solid transparent; border-radius: var(--r-pill); padding: 15px 38px; cursor: pointer; transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+    .f-submit:hover { background: var(--c-sinopia-600); }
+    .f-submit:active { transform: translateY(1px); }
+    .f-bottom { border-top: 1px solid rgba(252,250,240,0.12); max-width: 1180px; margin: 0 auto; padding: clamp(22px, 2.6vw, 30px) clamp(28px, 6vw, 80px); }
+    .f-copy { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-14); color: var(--c-warm-400); margin: 0; text-align: center; }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .footer-main { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+    }
+    @media (max-width: 600px) {
+      .policy-section { padding: 60px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <nav class="nav" aria-label="Primary">
+    <a href="index.html" aria-label="Laid Off Launchpad home">
+      <img class="nav-logo" src="./images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad"
+           onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')">
+      <span class="nav-logo-text" hidden>Laid Off Launchpad</span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="about.html">About</a>
+        <a href="essays.html">Essays</a>
+        <a href="index.html#accelerator">The Accelerator</a>
+      </div>
+      <button class="btn-primary btn-sm">Book Your Job Search Audit</button>
+    </div>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" aria-label="Page hero">
+    <h1 class="hero-headline">Privacy Policy &amp; Terms of Use</h1>
+  </section>
+
+  <!-- ===== Policy Content ===== -->
+  <section class="policy-section">
+    <div class="policy-inner">
+
+      <!-- Terms of Use -->
+      <h2>Terms of Use</h2>
+      <hr class="section-rule">
+      <p class="policy-date">Effective Date: 01/01/2025 &nbsp;&bull;&nbsp; Last Updated: July 2, 2026</p>
+      <p>Welcome to LaidOffLaunchpad.co (the &ldquo;Website&rdquo;). These Terms of Service (&ldquo;Terms&rdquo;) govern your use of our Website and services. By accessing or using this Website, you agree to comply with these Terms. If you do not agree, please refrain from using our Website.</p>
+
+      <h3>Use of the Website</h3>
+      <p><strong>Eligibility:</strong> You must be at least 18 years old or the age of majority in your jurisdiction to use this Website.</p>
+      <p><strong>Permitted Use:</strong> You may use this Website for lawful purposes and in accordance with these Terms. You agree not to use the Website in a way that violates any applicable laws or regulations, attempt to gain unauthorized access to our systems or data, or engage in any activity that disrupts or interferes with the proper functioning of the Website.</p>
+
+      <h3>Intellectual Property</h3>
+      <p>All content on the Website, including text, graphics, logos, images, videos, and software, is the property of Laid Off Launchpad or its licensors and is protected by copyright, trademark, and other intellectual property laws. You are granted a limited, non-exclusive, non-transferable, revocable license to access and use the Website for personal, non-commercial purposes. You may not copy, reproduce, distribute, or create derivative works from any Website content without express permission, or use our trademarks, logos, or branding without prior consent.</p>
+
+      <h3>User Content</h3>
+      <p>By submitting content to the Website (e.g., comments, feedback, or testimonials), you grant us a non-exclusive, royalty-free, worldwide, perpetual license to use, reproduce, modify, publish, and display the content in connection with our business. You represent that you own or have the right to submit the content and that your content does not infringe on the rights of others. We reserve the right to remove user content that violates these Terms or is deemed inappropriate.</p>
+
+      <h3>Results Disclaimer</h3>
+      <p>Participation in the Job Landing Accelerator or any Laid Off Launchpad program, course, or coaching service does not guarantee employment or any specific career outcome. Individual results vary significantly based on factors including but not limited to job market conditions, geographic location, industry, individual effort, prior experience, qualifications, and other circumstances outside our control. Testimonials and client success stories shared on this Website reflect individual experiences and are not guarantees of typical results. Nothing on this Website or in any Laid Off Launchpad program constitutes a promise or guarantee of employment, income, or career advancement.</p>
+
+      <h3>Disclaimers</h3>
+      <p>The Website and its content are provided &ldquo;as is&rdquo; and &ldquo;as available&rdquo; without any warranties, express or implied. We do not guarantee the accuracy, completeness, or reliability of the Website&rsquo;s content, or that the Website will be available, secure, or error-free at all times. The content on this Website is for informational and educational purposes only and does not constitute professional career, legal, financial, or psychological advice. We disclaim all liability for any damages arising from your use of the Website or reliance on its content.</p>
+
+      <h3>Limitation of Liability</h3>
+      <p>To the fullest extent permitted by law, Laid Off Launchpad and its affiliates, officers, employees, or agents will not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your access to or use of the Website, your participation in any program or service, any unauthorized access to or use of our servers and data, or errors, interruptions, or other issues affecting the Website&rsquo;s functionality.</p>
+
+      <h3>Indemnification</h3>
+      <p>You agree to indemnify and hold Laid Off Launchpad harmless from any claims, damages, losses, or expenses arising out of your use of the Website, your participation in any program or service, your breach of these Terms, or your violation of any rights of another.</p>
+
+      <h3>Third-Party Links</h3>
+      <p>The Website may include links to external websites or services. These links are provided for convenience, and we are not responsible for the content or practices of third-party sites. Use them at your own risk.</p>
+
+      <h3>Termination</h3>
+      <p>We reserve the right to terminate or restrict your access to the Website, without notice, if you violate these Terms or engage in unauthorized or harmful behavior.</p>
+
+      <h3>Governing Law</h3>
+      <p>These Terms are governed by and construed in accordance with the laws of the State of Colorado, without regard to its conflict of law principles.</p>
+
+      <h3>Changes to the Terms</h3>
+      <p>We may update these Terms from time to time. Changes will be posted on this page with the &ldquo;Last Updated&rdquo; date. Continued use of the Website after changes constitute your acceptance of the new Terms.</p>
+
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:austin@laidofflaunchpad.co" style="color: var(--c-sinopia); text-decoration: none;">austin@laidofflaunchpad.co</a></p>
+
+      <hr class="policy-divider">
+
+      <!-- Privacy Policy -->
+      <h2>Privacy Policy</h2>
+      <hr class="section-rule">
+      <p class="policy-date">Effective Date: 01/01/2025 &nbsp;&bull;&nbsp; Last Updated: July 2, 2026</p>
+      <p>Welcome to LaidOffLaunchpad.co (the &ldquo;Website&rdquo;). Your privacy is important to us. This Privacy Policy explains how we collect, use, disclose, and protect your information when you visit our Website. By using our Website, you agree to the practices described in this Privacy Policy.</p>
+
+      <h3>Information We Collect</h3>
+      <p><strong>Personal Information:</strong> Information that identifies you, such as your name and email address, voluntarily provided through forms on our Website when you sign up for the free Job Search Smarter playbook, book a Job Search Audit call, submit a contact form, or enroll in any Laid Off Launchpad program.</p>
+      <p><strong>Non-Personal Information:</strong> Non-identifiable information such as your IP address, browser type, device type, operating system, and browsing behavior including pages visited and links clicked.</p>
+      <p><strong>Cookies and Tracking Technologies:</strong> We use cookies and similar technologies to improve your experience on our Website, understand how visitors use the site, and improve our services.</p>
+
+      <h3>How We Use Your Information</h3>
+      <p>We use your information to provide and maintain our Website and its services, deliver the Job Search Smarter email course and other requested resources, respond to your inquiries and booking requests, send program updates or promotional content if you have opted in, and ensure compliance with legal requirements.</p>
+
+      <h3>Email Communications</h3>
+      <p>By submitting your email address through any form on this Website, you consent to receive the Job Search Smarter email course and periodic updates from Laid Off Launchpad. We use Kit (formerly ConvertKit) as our email marketing platform. You may unsubscribe at any time by clicking the unsubscribe link in any email. We will never sell or share your email address with third parties for their marketing purposes.</p>
+
+      <h3>How We Share Your Information</h3>
+      <p>We respect your privacy and do not sell your personal information. We may share your information with trusted third-party service providers who assist with our operations, including email marketing platforms, website hosting, scheduling tools, and analytics providers. These providers are contractually obligated to protect your information. We may also disclose your information when required by law or to protect our rights, property, or safety.</p>
+
+      <h3>Third-Party Links</h3>
+      <p>Our Website may include links to external websites or resources that are not under our control. We are not responsible for the privacy practices or content of these external sites. Please review their respective privacy policies.</p>
+
+      <h3>Data Security</h3>
+      <p>We implement reasonable security measures to safeguard your information. However, no online system is completely secure, and we cannot guarantee the absolute protection of your data.</p>
+
+      <h3>Your Choices</h3>
+      <p>You may opt out of marketing communications at any time by clicking the unsubscribe link in any email we send. You may adjust your browser settings to disable cookies or limit tracking. You may contact us to access, correct, or request deletion of your personal information.</p>
+
+      <h3>Children&rsquo;s Privacy</h3>
+      <p>LaidOffLaunchpad.co is not designed for or directed to children under 13 years of age. We do not knowingly collect personal information from children. If you believe a child has provided us with their information, please contact us immediately.</p>
+
+      <h3>Changes to This Privacy Policy</h3>
+      <p>We may revise this Privacy Policy from time to time. Updates will be posted on this page with the &ldquo;Last Updated&rdquo; date. We encourage you to review this page periodically.</p>
+
+      <h3>Contact Us</h3>
+      <p>Email: <a href="mailto:austin@laidofflaunchpad.co" style="color: var(--c-sinopia); text-decoration: none;">austin@laidofflaunchpad.co</a></p>
+      <p>This Privacy Policy is intended to comply with applicable data protection laws including GDPR and CCPA where relevant.</p>
+
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="f-brand">
+        <img class="f-logo" src="./images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad">
+        <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
+        <a class="f-social" href="https://www.linkedin.com/in/brownaustin/" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path></svg>
+        </a>
+      </div>
+      <nav class="f-menu" aria-label="Footer">
+        <p class="f-label">Menu</p>
+        <div class="f-nav">
+          <a href="index.html">Homepage</a>
+          <a href="about.html">About</a>
+          <a href="essays.html">Essays</a>
+          <a href="index.html#accelerator">The Accelerator</a>
+          <a href="#">Book Your Job Search Audit</a>
+          <a href="./privacy.html">Privacy Policy &amp; Terms of Use</a>
+        </div>
+      </nav>
+      <div class="f-contact">
+        <p class="f-label">Contact Us</p>
+        <form class="f-form" onsubmit="return false;">
+          <input class="full" type="text" placeholder="Full name" aria-label="Full name" autocomplete="name">
+          <input class="full" type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea class="full" placeholder="Message" aria-label="Message"></textarea>
+          <button class="f-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p class="f-copy">Copyright &copy; 2026 &mdash; Laid Off Launchpad. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
+</body>
+</html>
