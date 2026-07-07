@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Job Search Audit &amp; Accelerator — Laid Off Launchpad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; background: #FFFFFF; }
+
+    /* ── Shared ── */
+    .eyebrow {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 600; font-size: 13px;
+      letter-spacing: 3px; text-transform: uppercase; color: #C73E1D; text-align: center;
+      margin: 0;
+    }
+    .btn-orange {
+      display: inline-block; background: #C73E1D; color: #FFFFFF;
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      line-height: 1; text-align: center; text-decoration: none;
+      border: none; border-radius: 999px; padding: 16px 40px;
+      cursor: pointer; white-space: nowrap;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+    .btn-orange:hover { background: #A93216; }
+    .btn-orange:active { transform: translateY(1px); }
+    .btn-orange-full {
+      display: block; width: 100%; background: #C73E1D; color: #FFFFFF;
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 700;
+      font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase;
+      line-height: 1; text-align: center; text-decoration: none;
+      border: none; border-radius: 999px; padding: 16px;
+      cursor: pointer;
+      transition: background 160ms ease, transform 160ms ease;
+    }
+    .btn-orange-full:hover { background: #A93216; }
+    .btn-orange-full:active { transform: translateY(1px); }
+
+    /* ── Section 1 — Audit ── */
+    .audit-section {
+      background: #FFFFFF;
+      padding: 60px 24px 80px;
+    }
+    .audit-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .audit-inner .eyebrow { margin-bottom: 28px; }
+    .audit-headline {
+      font-family: 'EB Garamond', Georgia, serif; font-weight: 600;
+      font-size: clamp(36px, 4.5vw, 48px); line-height: 1.15;
+      letter-spacing: -0.01em; color: #1A1A1A; text-align: center;
+      margin: 0 0 48px; text-wrap: balance;
+    }
+    .audit-subsection { margin-top: 48px; }
+    .subsection-heading {
+      font-family: 'EB Garamond', Georgia, serif; font-weight: 400;
+      font-size: 18px; line-height: 1.3; color: #C73E1D; margin: 0 0 12px;
+    }
+    .subsection-body {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 1.7; color: #1A1A1A; margin: 0;
+    }
+    .audit-items {
+      display: flex; flex-direction: column;
+      margin-top: 32px;
+    }
+    .audit-item {
+      padding: 18px 0;
+      border-bottom: 1px solid #E5E5E5;
+    }
+    .audit-item:first-child { padding-top: 0; }
+    .audit-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .item-label {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 700;
+      font-size: 15px; color: #1A1A1A; margin: 0 0 4px;
+    }
+    .item-desc {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 400;
+      font-size: 14px; line-height: 1.6; color: #A9A7A1; margin: 0;
+    }
+    .audit-cta-wrap { margin-top: 32px; text-align: center; }
+
+    /* ── Section 2 — Accelerator ── */
+    .accel-section {
+      background: #FCFAF0;
+      padding: 80px 24px;
+    }
+    .accel-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .accel-inner .eyebrow { margin-bottom: 28px; }
+    .accel-headline {
+      font-family: 'EB Garamond', Georgia, serif; font-weight: 600;
+      font-size: clamp(30px, 4vw, 42px); line-height: 1.18;
+      letter-spacing: -0.01em; color: #1A1A1A;
+      margin: 0 0 24px; text-wrap: balance;
+    }
+    .accel-body {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 400;
+      font-size: 16px; line-height: 1.7; color: #1A1A1A;
+      margin: 0 0 40px;
+    }
+    .form-card {
+      background: #FFFFFF; border-radius: 12px;
+      box-shadow: 0 4px 24px -8px rgba(26,26,26,0.12), 0 1px 4px rgba(26,26,26,0.06);
+      padding: 40px; max-width: 600px; margin: 0 auto;
+      text-align: left;
+    }
+    .form-fields { display: flex; flex-direction: column; gap: 16px; }
+    .form-fields input,
+    .form-fields textarea {
+      width: 100%; font-family: 'Inter', system-ui, sans-serif; font-size: 15px;
+      color: #1A1A1A; background: #FFFFFF;
+      border: 1px solid #A9A7A1; border-radius: 8px;
+      padding: 14px 16px; outline: none; resize: none;
+      transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
+    .form-fields textarea { resize: vertical; min-height: 96px; }
+    .form-fields input::placeholder,
+    .form-fields textarea::placeholder { color: #A9A7A1; }
+    .form-fields input:focus,
+    .form-fields textarea:focus {
+      border-color: #C73E1D;
+      box-shadow: 0 0 0 3px rgba(199,62,29,0.15);
+    }
+    .form-cta { margin-top: 24px; }
+
+    /* ── Section 3 — Testimonials ── */
+    .testimonials-section {
+      background: #FFFFFF;
+      padding: 80px 24px;
+    }
+    .testimonials-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .testimonials-inner .eyebrow { margin-bottom: 40px; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .tcard {
+      background: #FCFAF0; border-radius: 12px;
+      box-shadow: 0 2px 12px -4px rgba(26,26,26,0.10);
+      padding: 32px;
+    }
+    .tcard-quote {
+      font-family: 'EB Garamond', Georgia, serif; font-style: italic;
+      font-weight: 400; font-size: 18px; line-height: 1.6;
+      color: #1A1A1A; margin: 0 0 16px;
+    }
+    .tcard-attr {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 400;
+      font-size: 13px; color: #A9A7A1; margin: 0;
+    }
+
+    /* ── Section 4 — Footer ── */
+    .page-footer {
+      background: #1A1A1A;
+      padding: 32px 24px;
+    }
+    .footer-copy {
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 400;
+      font-size: 13px; color: #A9A7A1; text-align: center; margin: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+      .audit-headline { font-size: 30px; }
+      .accel-headline { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Section 1 — Job Search Audit ===== -->
+  <section class="audit-section">
+    <div class="audit-inner">
+      <p class="eyebrow">Your Free Job Search Audit</p>
+      <h1 class="audit-headline">A free 30-minute call to identify what would move your search forward.</h1>
+
+      <div class="audit-subsection">
+        <h2 class="subsection-heading">What is this call?</h2>
+        <p class="subsection-body">A straightforward conversation about where your search stands. We look at five areas together and figure out what&rsquo;s working and what to build on.</p>
+        <div class="audit-items">
+          <div class="audit-item">
+            <p class="item-label">Direction</p>
+            <p class="item-desc">Get clear on exactly which roles and companies deserve your energy.</p>
+          </div>
+          <div class="audit-item">
+            <p class="item-label">Structure</p>
+            <p class="item-desc">Build a daily process that tells you what to do next, every single day.</p>
+          </div>
+          <div class="audit-item">
+            <p class="item-label">Visibility</p>
+            <p class="item-desc">Put yourself in front of the right people in the right way.</p>
+          </div>
+          <div class="audit-item">
+            <p class="item-label">Confidence</p>
+            <p class="item-desc">Find a system you can trust so uncertainty stops running the show.</p>
+          </div>
+          <div class="audit-item">
+            <p class="item-label">Momentum</p>
+            <p class="item-desc">Create consistent forward movement regardless of what the market is doing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="audit-subsection">
+        <h2 class="subsection-heading">What will I get out of it?</h2>
+        <p class="subsection-body">A clear picture of where you have the most opportunity and specific guidance on how to get more traction and land faster.</p>
+      </div>
+
+      <div class="audit-subsection">
+        <h2 class="subsection-heading">How do I book it?</h2>
+        <p class="subsection-body">Pick a time below. It&rsquo;s free.</p>
+        <div class="audit-cta-wrap">
+          <a class="btn-orange" href="#">Book Your Free Job Search Audit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 2 — Job Landing Accelerator ===== -->
+  <section class="accel-section">
+    <div class="accel-inner">
+      <p class="eyebrow">The Job Landing Accelerator</p>
+      <h2 class="accel-headline">A structured program for job seekers who are ready to stop guessing and start making progress.</h2>
+      <p class="accel-body">The Accelerator is a small group coaching program built around the same system we cover in your audit &mdash; but with 12 weeks of structure, community, and accountability behind it. If you&rsquo;re serious about landing faster, this is the next step.</p>
+      <div class="form-card">
+        <div class="form-fields">
+          <input type="text" placeholder="Full Name" aria-label="Full Name" autocomplete="name">
+          <input type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea rows="3" placeholder="What&apos;s the biggest challenge in your search right now?" aria-label="What's the biggest challenge in your search right now?"></textarea>
+        </div>
+        <div class="form-cta">
+          <button class="btn-orange-full" type="submit">See If This Is Right For You</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 3 — Testimonials ===== -->
+  <section class="testimonials-section">
+    <div class="testimonials-inner">
+      <p class="eyebrow">What People Are Saying</p>
+      <div class="testimonials-grid">
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;Joining the Accelerator was the best thing I did for myself and my job search after experiencing a layoff.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Emily K.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;He brought a level of calm and clarity to a really chaotic time.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Kristen P.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;Just having a meeting on the calendar to attend regularly gave me a sense of normalcy.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Adam M.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;Austin&rsquo;s support has been thoughtful, structured, empathetic, and accountable.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Joanie H.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;Austin&rsquo;s LAND framework has been my rock throughout my journey.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Joe V.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;Laid Off Launchpad provided the structure, accountability, and community I needed to stay grounded and make progress in my job search.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Vinnie A.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;Being part of a group of professionals going through the same layoff experience made a difference.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Pulkit S.</p>
+        </div>
+        <div class="tcard">
+          <p class="tcard-quote">&ldquo;The combination of community, structure, and Austin&rsquo;s leadership creates real impact.&rdquo;</p>
+          <p class="tcard-attr">&mdash; Tiffany P.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Section 4 — Footer ===== -->
+  <footer class="page-footer">
+    <p class="footer-copy">Copyright &copy; 2026 &mdash; Laid Off Launchpad. All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
