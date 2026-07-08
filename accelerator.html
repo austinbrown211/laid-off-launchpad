@@ -29,7 +29,8 @@
       letter-spacing: -0.015em;
       color: #1A1A1A;
       text-align: center;
-      margin: 0 0 16px;
+      max-width: 950px;
+      margin: 0 auto 16px;
     }
     .hero-sub {
       font-family: 'Inter', system-ui, sans-serif;
@@ -47,7 +48,7 @@
       margin-top: 48px;
       align-items: start;
     }
-    .col-calendly { min-width: 0; }
+    .col-calendly { min-width: 0; width: 100%; }
     .col-right {
       display: flex;
       align-items: center;
@@ -72,7 +73,7 @@
     .accel-headline {
       font-family: 'EB Garamond', Georgia, serif;
       font-weight: 600;
-      font-size: 28px;
+      font-size: 25px;
       line-height: 1.25;
       color: #1A1A1A;
       margin: 0 0 24px;
@@ -195,7 +196,7 @@
       <div class="hero-columns">
         <div class="col-calendly">
           <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/laidofflaunchpad/job-search-strategy-call" style="min-width:320px;height:700px;"></div>
+          <div class="calendly-inline-widget" data-url="https://calendly.com/laidofflaunchpad/job-search-strategy-call" style="width:100%;height:700px;"></div>
           <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
           <!-- Calendly inline widget end -->
         </div>
@@ -203,7 +204,7 @@
         <div class="col-right">
           <div class="col-right-inner">
             <p class="accel-eyebrow">Job Landing Accelerator</p>
-            <h2 class="accel-headline">A structured 12-week program for job seekers who are ready to move with intention.</h2>
+            <h2 class="accel-headline">A structured 12-week program<br>for job seekers ready to move with intention.</h2>
             <ul class="accel-bullets">
               <li>A proven daily system that tells you exactly what to do each day</li>
               <li>A small group of peers navigating the same experience</li>
