@@ -18,7 +18,7 @@
       padding: 80px 24px;
     }
     .hero-inner {
-      max-width: 1500px;
+      max-width: 1100px;
       margin: 0 auto;
     }
     .hero-headline {
@@ -41,85 +41,8 @@
       text-align: center;
       margin: 0;
     }
-    .hero-columns {
-      display: flex;
-      flex-direction: row;
-      gap: 60px;
+    .calendly-wrap {
       margin-top: 48px;
-      align-items: flex-start;
-    }
-    .col-calendly {
-      flex: 0 0 1050px;
-      min-width: 0;
-    }
-    .col-right {
-      flex: 1;
-      min-width: 350px;
-      display: flex;
-      align-items: center;
-      min-height: 700px;
-    }
-    .col-right-inner {
-      width: 100%;
-      background: #FCFAF0;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    .accel-eyebrow {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-weight: 600;
-      font-size: 13px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #C73E1D;
-      margin: 0 0 12px;
-    }
-    .accel-headline {
-      font-family: 'EB Garamond', Georgia, serif;
-      font-weight: 600;
-      font-size: 25px;
-      line-height: 1.25;
-      color: #1A1A1A;
-      margin: 0 0 24px;
-    }
-    .accel-bullets {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .accel-bullets li {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 1.7;
-      color: #1A1A1A;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .accel-bullets li::before {
-      content: '—';
-      color: #C73E1D;
-      flex-shrink: 0;
-      line-height: 1.7;
-    }
-    .accel-rule {
-      border: none;
-      border-top: 1px solid #E5E5E5;
-      margin: 0 0 24px;
-    }
-    .accel-note {
-      font-family: 'Inter', system-ui, sans-serif;
-      font-weight: 400;
-      font-size: 15px;
-      line-height: 1.7;
-      color: #A9A7A1;
-      font-style: italic;
-      margin: 0;
     }
 
     /* ── Section 2 — Testimonials ── */
@@ -179,23 +102,6 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 1549px) {
-      .hero-columns {
-        flex-direction: column;
-        gap: 48px;
-      }
-      .col-calendly {
-        flex: none;
-        width: 100%;
-      }
-      .col-right {
-        flex: none;
-        width: 100%;
-        min-width: unset;
-        min-height: unset;
-      }
-    }
-
     @media (max-width: 768px) {
       .hero-headline { font-size: 36px; }
     }
@@ -209,27 +115,11 @@
       <h1 class="hero-headline">Ready to make progress in your job search? Book your strategy call.</h1>
       <p class="hero-sub">Take the guesswork out of finding a job.</p>
 
-      <div class="hero-columns">
-        <div class="col-calendly">
-          <!-- Calendly inline widget begin -->
-          <div class="calendly-inline-widget" data-url="https://calendly.com/laidofflaunchpad/job-search-strategy-call" data-resize="true" style="width:100%;height:700px;"></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-          <!-- Calendly inline widget end -->
-        </div>
-
-        <div class="col-right">
-          <div class="col-right-inner">
-            <p class="accel-eyebrow">Job Landing Accelerator</p>
-            <h2 class="accel-headline">A structured 12-week program<br>for job seekers ready to move with intention.</h2>
-            <ul class="accel-bullets">
-              <li>A proven daily system that tells you exactly what to do each day</li>
-              <li>A small group of peers navigating the same experience</li>
-              <li>Confidence at every stage &mdash; from application to offer</li>
-            </ul>
-            <hr class="accel-rule">
-            <p class="accel-note">Either way, you&rsquo;ll leave with clarity on next steps.</p>
-          </div>
-        </div>
+      <div class="calendly-wrap">
+        <!-- Calendly inline widget begin -->
+        <div class="calendly-inline-widget" data-url="https://calendly.com/laidofflaunchpad/job-search-strategy-call" data-resize="true" style="width:100%;height:700px;"></div>
+        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <!-- Calendly inline widget end -->
       </div>
     </div>
   </section>
