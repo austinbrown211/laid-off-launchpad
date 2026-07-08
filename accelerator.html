@@ -42,7 +42,7 @@
     }
     .hero-columns {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 62fr 38fr;
       gap: 60px;
       margin-top: 48px;
       align-items: start;
@@ -53,7 +53,13 @@
       align-items: center;
       min-height: 700px;
     }
-    .col-right-inner { width: 100%; }
+    .col-right-inner {
+      width: 100%;
+      background: #FCFAF0;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
     .accel-eyebrow {
       font-family: 'Inter', system-ui, sans-serif;
       font-weight: 600;
@@ -129,17 +135,18 @@
       margin: 0 0 64px;
     }
     .testimonial {
-      margin-bottom: 64px;
+      max-width: 550px;
+      margin: 0 auto 64px;
     }
     .testimonial:last-child {
       margin-bottom: 0;
     }
     .t-quote {
       font-family: 'EB Garamond', Georgia, serif;
-      font-style: italic;
+      font-style: normal;
       font-weight: 400;
       font-size: 24px;
-      line-height: 1.6;
+      line-height: 1.55;
       color: #1A1A1A;
       margin: 0;
     }
@@ -182,7 +189,7 @@
   <!-- ===== Section 1 — Hero & Booking ===== -->
   <section class="hero-section">
     <div class="hero-inner">
-      <h1 class="hero-headline">Job Searching Made Simple</h1>
+      <h1 class="hero-headline">Ready to make progress in your job search? Book your strategy call.</h1>
       <p class="hero-sub">Take the guesswork out of finding a job.</p>
 
       <div class="hero-columns">
