@@ -1,0 +1,6 @@
+[build]
+  command = "node scripts/generate-essays.js"
+  publish = "."
+
+[build.environment]
+  NODE_VERSION = "20"
