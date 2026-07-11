@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Mentorship Advantage — Laid Off Launchpad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../_ds/laid-off-launchpad-design-system-621140a4-c0fe-4736-8538-e53fa50c704a/colors_and_type.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body { font-family: var(--font-sans); background: var(--c-alice-blue); -webkit-font-smoothing: antialiased; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 20;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px clamp(28px, 5vw, 72px);
+      background: rgba(26,26,26,0.96);
+      backdrop-filter: saturate(140%) blur(8px);
+    }
+    .nav-logo { height: 104px; width: auto; display: block; margin-left: -12px; }
+    .nav-logo-text {
+      font-family: var(--font-serif); font-weight: 600; font-size: 1.2rem;
+      color: var(--c-floral-white); letter-spacing: -0.01em; line-height: 1.2;
+      max-width: 180px; text-wrap: balance;
+    }
+    .nav-right { display: flex; align-items: center; gap: clamp(22px, 3vw, 40px); }
+    .nav-links { display: flex; align-items: center; gap: clamp(20px, 2.6vw, 38px); }
+    .nav-links a {
+      font-family: var(--font-sans); font-weight: 500; font-size: 15px;
+      color: rgba(252,250,240,0.82); text-decoration: none;
+      padding-bottom: 3px; border-bottom: 1.5px solid transparent;
+      transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+    }
+    .nav-links a:hover, .nav-links a.is-active { color: var(--c-floral-white); border-bottom-color: var(--c-sinopia); }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans); font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-floral-white); background: var(--c-sinopia);
+      border: 1.5px solid transparent; border-radius: var(--r-pill);
+      cursor: pointer; white-space: nowrap; text-decoration: none;
+      box-shadow: 0 8px 20px -10px rgba(199,62,29,0.55);
+      transition: background var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    }
+    .btn-primary:hover { background: var(--c-sinopia-600); box-shadow: 0 12px 26px -10px rgba(199,62,29,0.7); }
+    .btn-primary:active { transform: translateY(1px); }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--font-sans); font-weight: 700;
+      letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1;
+      color: var(--c-sinopia); background: var(--c-white);
+      border: 1.5px solid var(--c-sinopia); border-radius: var(--r-pill);
+      cursor: pointer; white-space: nowrap; text-decoration: none;
+      transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+    }
+    .btn-outline:hover { background: var(--c-sinopia); color: var(--c-floral-white); }
+    .btn-sm { font-size: 13px; letter-spacing: 0.14em; padding: 11px 22px; }
+    .btn-md { font-size: 14px; padding: 15px 30px; }
+    .btn-block { width: 100%; }
+
+    .wrap {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(40px, 6vh, 76px) clamp(28px, 6vw, 80px) clamp(64px, 9vh, 110px);
+      display: grid; grid-template-columns: minmax(0, 65fr) minmax(0, 35fr);
+      gap: clamp(40px, 5vw, 80px); align-items: start;
+    }
+
+    .crumb {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-sans); font-weight: 600;
+      font-size: var(--fs-14); color: var(--c-sinopia); text-decoration: none;
+      margin: 0 0 clamp(24px, 3vw, 36px);
+      transition: gap var(--dur-fast) var(--ease-out);
+    }
+    .crumb svg { width: 16px; height: 16px; }
+    .crumb:hover { gap: 10px; }
+
+    .essay-tag { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0; }
+    .essay-title {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(2.2rem, 3.8vw, 3.3rem); line-height: 1.1;
+      letter-spacing: -0.014em; color: var(--c-eerie-black);
+      margin: clamp(14px, 1.6vw, 20px) 0 0; text-wrap: balance;
+    }
+    .essay-rule { height: 2px; background: var(--c-sinopia); border: 0; margin: clamp(22px, 2.6vw, 32px) 0 clamp(26px, 3vw, 38px); width: 100%; }
+    .essay-body p {
+      font-family: var(--font-sans); font-weight: 400;
+      font-size: clamp(1.05rem, 1.18vw, 1.15rem); line-height: 1.72;
+      color: var(--fg-body); margin: 0 0 1.45em; text-wrap: pretty;
+    }
+    .essay-body h2 {
+      font-family: var(--font-serif); font-weight: 600;
+      font-size: clamp(1.55rem, 2.2vw, 2rem); line-height: 1.2;
+      letter-spacing: -0.01em; color: var(--c-eerie-black);
+      margin: 1.8em 0 0.6em;
+    }
+
+    .end-cta {
+      background: var(--c-white); border-radius: var(--r-lg);
+      padding: clamp(30px, 3.4vw, 48px);
+      box-shadow: 0 16px 40px -24px rgba(26,26,26,0.24), 0 3px 10px -7px rgba(26,26,26,0.12);
+      margin-top: clamp(44px, 5vw, 64px);
+    }
+    .end-eyebrow { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0; }
+    .end-headline { font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.6rem, 2.4vw, 2.1rem); line-height: 1.15; letter-spacing: -0.01em; color: var(--c-eerie-black); margin: 12px 0 0; }
+    .end-body { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16); line-height: 1.55; color: var(--fg-body); margin: 12px 0 0; max-width: 52ch; }
+    .end-cta .btn-primary { margin-top: clamp(22px, 2.4vw, 30px); }
+
+    .sidebar { display: flex; flex-direction: column; gap: 22px; }
+    .side-card {
+      background: var(--c-white); border-radius: var(--r-lg);
+      padding: clamp(24px, 1.9vw, 32px);
+      box-shadow: 0 16px 40px -24px rgba(26,26,26,0.24), 0 3px 10px -7px rgba(26,26,26,0.12);
+    }
+    .side-eyebrow { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0; }
+    .side-headline { font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.35rem, 1.7vw, 1.6rem); line-height: 1.18; letter-spacing: -0.008em; color: var(--c-eerie-black); margin: 10px 0 0; }
+    .side-body { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16); line-height: 1.5; color: var(--fg-body); margin: 10px 0 0; }
+    .side-card .btn-outline, .side-card .btn-primary { margin-top: 18px; }
+
+    .footer { background: #1A1A1A; }
+    .footer-main {
+      max-width: 1180px; margin: 0 auto;
+      padding: clamp(56px, 8vh, 92px) clamp(28px, 6vw, 80px) clamp(40px, 5vw, 64px);
+      display: grid; grid-template-columns: 1.05fr 0.85fr 1.1fr;
+      gap: clamp(40px, 6vw, 96px); align-items: start;
+    }
+    .f-logo { width: 160px; height: auto; display: block; margin: 0 0 0 -2px; }
+    .f-tagline { font-family: var(--font-body); font-size: var(--fs-16); line-height: 1.6; color: var(--c-warm-300); margin: 20px 0 0; max-width: 32ch; }
+    .f-social { margin-top: 26px; display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; border-radius: var(--r-pill); border: 1px solid rgba(252,250,240,0.18); color: var(--c-warm-300); transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out); }
+    .f-social:hover { color: var(--c-floral-white); background: var(--c-sinopia); border-color: var(--c-sinopia); }
+    .f-social svg { width: 19px; height: 19px; display: block; }
+    .f-label { font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12); letter-spacing: var(--tracking-xwide); text-transform: uppercase; color: var(--c-sinopia); margin: 0 0 22px; }
+    .f-nav { display: flex; flex-direction: column; gap: 14px; }
+    .f-nav a { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-16); color: var(--c-warm-200); text-decoration: none; width: fit-content; transition: color var(--dur-fast) var(--ease-out); }
+    .f-nav a:hover { color: var(--c-floral-white); }
+    .f-form { display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .f-form input, .f-form textarea { width: 100%; font-family: var(--font-sans); font-size: var(--fs-16); color: var(--c-floral-white); background: #211F1D; border: 1px solid rgba(252,250,240,0.07); border-radius: var(--r-md); padding: 13px 16px; outline: none; transition: border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out); }
+    .f-form textarea { min-height: 110px; resize: vertical; }
+    .f-form input::placeholder, .f-form textarea::placeholder { color: var(--c-floral-white); opacity: 0.92; }
+    .f-form input:focus, .f-form textarea:focus { border-color: var(--c-sinopia); box-shadow: 0 0 0 3px rgba(199,62,29,0.18); }
+    .f-submit { grid-column: 1 / -1; justify-self: start; margin-top: 4px; font-family: var(--font-sans); font-weight: 700; font-size: 14px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1; color: var(--c-floral-white); background: var(--c-sinopia); border: 1.5px solid transparent; border-radius: var(--r-pill); padding: 15px 38px; cursor: pointer; transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
+    .f-submit:hover { background: var(--c-sinopia-600); }
+    .f-submit:active { transform: translateY(1px); }
+    .f-bottom { border-top: 1px solid rgba(252,250,240,0.12); max-width: 1180px; margin: 0 auto; padding: clamp(22px, 2.6vw, 30px) clamp(28px, 6vw, 80px); }
+    .f-copy { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-14); color: var(--c-warm-400); margin: 0; text-align: center; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .wrap { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+      .sidebar { position: static; }
+      .footer-main { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+    }
+  
+    .essay-body ul { margin: 0 0 1.45em 1.4em; padding: 0; }
+    .essay-body li { font-family: var(--font-sans); font-weight: 400; font-size: clamp(1.05rem, 1.18vw, 1.15rem); line-height: 1.72; color: var(--fg-body); margin: 0 0 0.5em; text-wrap: pretty; }
+    .essay-body blockquote { border-left: 3px solid var(--c-sinopia); margin: 0 0 1.45em 0; padding: 0.2em 0 0.2em 1.2em; }
+    .essay-body blockquote p { margin: 0; font-style: italic; color: var(--c-warm-500); }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Nav ===== -->
+  <nav class="nav" aria-label="Primary">
+    <a href="../index.html" aria-label="Laid Off Launchpad home">
+      <img class="nav-logo" src="../images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad"
+           onerror="this.style.display='none';this.nextElementSibling.removeAttribute('hidden')">
+      <span class="nav-logo-text" hidden>Laid Off Launchpad</span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="../about.html">About</a>
+        <a class="is-active" href="../essays.html">Essays</a>
+        <a href="../accelerator.html">The Accelerator</a>
+      </div>
+      <a class="btn-primary btn-sm" href="#CALENDLY_PLACEHOLDER">Book Your Job Search Strategy Call</a>
+    </div>
+  </nav>
+
+  <!-- ===== Two-column layout ===== -->
+  <div class="wrap">
+
+    <!-- Essay content -->
+    <main class="essay">
+      <a class="crumb" href="../essays.html"><i data-lucide="arrow-left"></i> Essays</a>
+
+      <p class="essay-tag">Skills &amp; Qualifications</p>
+      <h1 class="essay-title">The Mentorship Advantage</h1>
+      <hr class="essay-rule">
+
+      <div class="essay-body">
+        <p>A few years ago, I found myself stuck.</p>
+        <p>I'd been in the same role for a while. Despite steady wins and 'Exceeding Expectations' reviews, progression had stalled. My next step, if there even was one, was becoming less clear every day.</p>
+        <p>I felt like I was facing two choices: double down on my current role, hoping for a promotion, or take a risk elsewhere. I had a sense for the pros and cons, but my instincts were incomplete.</p>
+        <p>I needed wisdom.</p>
+        <p>Books are filled with wisdom, but lack nuance. So I turned to my network, specifically two people from the inner circle of 25 people I referenced in last week’s newsletter... Kathy and David.</p>
+        <p>Rather than sending another casual LinkedIn message, I sent an email openly sharing my uncertainty, outlining the guidance I needed, and explicitly asked them if they'd mentor me for a few months. Fortunately, they were up for it.</p>
+        <p>Kathy had navigated over 30 years of complex career decisions. David had carved a path I deeply admired. Both had earned wisdom that was invaluable. More importantly, they knew me — my skills, my context, my aspirations.</p>
+        <p>I vividly remember one of those mentor calls with Kathy. She didn't hand me easy answers; she asked piercing questions. She cut through the noise in my head and clarified what really mattered.</p>
+        <p>She saw what I couldn't.</p>
+        <p>The exact guidance we discussed isn't important here. What mattered, and still matters, is that Kathy could see around corners I hadn't even realized were ahead.</p>
+        <h2>High Leverage Learning</h2>
+        <p>When we learn on our own, we're often guessing or piecing things together from scattered resources. Formal training can sometimes feel rigid, theoretical, disconnected from real-world context. But mentorship is different. It's immediate, personal, and powerful.</p>
+        <p>A good mentor doesn’t hand you a checklist. They engage directly with your needs. They listen closely, ask precise questions, and help you see clearly what you couldn't recognize on your own. When you engage with a mentor, you're receiving personalized guidance shaped with genuine understanding. The learning is nuanced.</p>
+        <p>This is why mentorship is high leveraged learning. Rather than spinning in uncertainty, you're learning directly from someone who’s already navigated the twists and turns ahead. In fact, research shows that people who have mentors are promoted five times more often than those who don’t.</p>
+        <blockquote><p>When you invite a mentor into your journey, you shorten the distance between where you are and where you want to be.</p></blockquote>
+        <h2>Overcoming Inaction</h2>
+        <p>I get it. Reaching out to ask someone to mentor you can feel deeply uncomfortable. It’s vulnerable to admit you don’t have all the answers, to openly say, “I’m stuck. Can you help me?”</p>
+        <p>When I drafted that email to Kathy and David, I remember overthinking every word I wrote. Was I bothering them? Would they think I was clueless or unprepared? Was I imposing on their time? Those thoughts nearly stopped me before I hit send.</p>
+        <p>And then there’s the misconception of mentorship as asking for favors. Nobody wants to feel like they’re draining someone else’s energy. Nobody wants to feel like a burden. So instead, we hold back.</p>
+        <p>All of this is our ego protecting ourselves.</p>
+        <p>The uncomfortable truth is that vulnerability is exactly why mentorship works. Your willingness to say, “I need your perspective” is the humble invitation to being a better you.</p>
+        <h2>My Mentorship Epiphany</h2>
+        <p>Every mentorship interaction has moved me forward. I’ve sharpened skillsets faster than I ever could have alone. I've made smarter, clearer decisions thanks to the wisdom of those who walked the path before me.</p>
+        <p>When you're open enough to share what's truly holding you back, mentors respond with deeper insights, perspectives they might otherwise reserve if you had kept things surface-level.</p>
+        <p>Vulnerability unlocks honesty.</p>
+        <p>And if you've ever mentored someone yourself, you also know that mentorship isn't just valuable to the mentee. It's genuinely rewarding for the mentor as well.</p>
+        <p>For several years, I’ve been a mentor to a guy named Jack. A few times a year Jack puts time on my calendar to get guidance on something he's wrestling with. No prep needed. I show up, hear what's going on, and share my two-cents. It's a small ask for me, but makes a huge difference to him.</p>
+        <p>Mentorship lets me transform my past struggles into someone else’s clarity. It helps Jack avoid the potholes I once hit head-on. And each time he thanks me, I want to tell him that the gratitude goes both ways. By giving me the opportunity to teach, he's gifting me a chance to make meaning from my experiences.</p>
+        <p>When you reach out to a mentor, you aren’t imposing. You're extending an invitation to pass on hard-earned wisdom.</p>
+        <p>I'll say it clearly, mentoring is mutually rewarding.</p>
+        <h2>My challenge to you.</h2>
+        <p>Here's how:</p>
+        <p>1.  <strong>Consider Your "Why" (5 mins)​</strong> Clarify exactly where you need help or perspective. Write down one specific question or challenge you're facing right now. 2.  <strong>Identify Your Mentor (10 mins)​</strong> Think about someone who knows you well enough to offer honest feedback, and who has relevant experience, someone who has already navigated the road you're on. 3.  <strong>Send the Message (15 mins)​</strong> Write a short, thoughtful note. Briefly share your situation, ask clearly for a short conversation, and suggest a few times to connect.</p>
+        <p>That’s it.</p>
+        <p>Thirty minutes is all it takes to open the door to clarity. Don't let hesitation keep you from one of the most powerful learning accelerators available to you. ​ And once someone agrees to mentor you, make the most of it:</p>
+        <p><strong>Be Curious</strong>​ You don’t need to impress your mentor. Remember, you’re there to learn. Let curiosity lead the way.</p>
+        <p><strong>Own the Agenda​</strong> It’s your job to bring the topic, frame the conversation, and follow up. The more prepared you are, the more valuable the time becomes.</p>
+        <p><strong>Act on Advice​</strong> If your mentor offers insight or guidance, take it seriously. Apply it, test it, and let them know how it went.</p>
+        <h2>Will you commit?</h2>
+        <p>So, I challenge you to engage a mentor this week. When you do, reply back and let me know.</p>
+      </div>
+
+      <!-- End-of-essay CTA -->
+      <aside class="end-cta">
+        <p class="end-eyebrow">Enjoyed this essay?</p>
+        <h2 class="end-headline">Here&rsquo;s a Good Next Step.</h2>
+        <p class="end-body">Book a free Job Search Strategy Call &mdash; a focused 30-minute conversation about where you are and what would actually move the needle.</p>
+        <a class="btn-primary btn-md" href="#CALENDLY_PLACEHOLDER">Book Your Job Search Strategy Call</a>
+      </aside>
+    </main>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" aria-label="Resources">
+      <div class="side-card">
+        <p class="side-eyebrow">Free resource</p>
+        <h2 class="side-headline">Not sure where to start?</h2>
+        <p class="side-body">The free playbook gives you a 5-day framework to diagnose what&rsquo;s stalling your search.</p>
+        <a class="btn-outline btn-md btn-block" href="#">Get the Free Playbook</a>
+      </div>
+      <div class="side-card">
+        <p class="side-eyebrow">Let&rsquo;s talk</p>
+        <h2 class="side-headline">Ready to talk it through?</h2>
+        <p class="side-body">Book a free 30-minute strategy call &mdash; no pitch, just clarity.</p>
+        <a class="btn-primary btn-md btn-block" href="#CALENDLY_PLACEHOLDER">Book a Free Call</a>
+      </div>
+    </aside>
+
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="footer-main">
+      <div class="f-brand">
+        <img class="f-logo" src="../images/LOL%20Logo%20on%20Black.png" alt="Laid Off Launchpad">
+        <p class="f-tagline">Helping job seekers land faster with a repeatable daily system.</p>
+        <a class="f-social" href="https://www.linkedin.com/in/brownaustin/" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.25 8h4.5v14H.25V8zm7.5 0h4.3v1.92h.06c.6-1.14 2.07-2.34 4.26-2.34 4.56 0 5.4 3 5.4 6.9V22h-4.5v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.54 1.72-2.54 3.49V22h-4.5V8z"></path></svg>
+        </a>
+      </div>
+      <nav class="f-menu" aria-label="Footer">
+        <p class="f-label">Menu</p>
+        <div class="f-nav">
+          <a href="../index.html">Homepage</a>
+          <a href="../about.html">About</a>
+          <a href="../essays.html">Essays</a>
+          <a href="../accelerator.html">The Accelerator</a>
+          <a href="#CALENDLY_PLACEHOLDER">Book Your Job Search Strategy Call</a>
+          <a href="../privacy.html">Privacy Policy &amp; Terms of Use</a>
+        </div>
+      </nav>
+      <div class="f-contact">
+        <p class="f-label">Contact Us</p>
+        <form class="f-form" onsubmit="return false;">
+          <input class="full" type="text" placeholder="Full name" aria-label="Full name" autocomplete="name">
+          <input class="full" type="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea class="full" placeholder="Message" aria-label="Message"></textarea>
+          <button class="f-submit" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <p class="f-copy">Copyright &copy; 2026 &mdash; Laid Off Launchpad. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
+</body>
+</html>

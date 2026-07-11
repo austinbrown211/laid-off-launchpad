@@ -41,29 +41,54 @@ function decodeHtmlEntities(str) {
 }
 
 // Fetch URL, following redirects (handles both http and https)
-function fetchUrl(url) {
+function fetchUrl(url, _depth) {
+  const depth = _depth || 0;
   return new Promise((resolve, reject) => {
-    const get = (u) => {
-      const lib = u.startsWith('https') ? https : http;
-      lib
-        .get(u, (res) => {
-          if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
-            get(res.headers.location);
-            return;
-          }
-          if (res.statusCode !== 200) {
-            reject(new Error(`HTTP ${res.statusCode} for ${u}`));
-            return;
-          }
-          const chunks = [];
-          res.on('data', (c) => chunks.push(c));
-          res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
-          res.on('error', reject);
-        })
-        .on('error', reject);
-    };
-    get(url);
+    if (depth > 10) {
+      reject(new Error('Too many redirects'));
+      return;
+    }
+    const lib = url.startsWith('https') ? https : http;
+    const req = lib.get(
+      url,
+      { headers: { 'User-Agent': 'laid-off-launchpad-build/1.0' } },
+      (res) => {
+        if (res.statusCode >= 300 && res.statusCode < 400 && res.headers.location) {
+          res.resume();
+          fetchUrl(res.headers.location, depth + 1).then(resolve, reject);
+          return;
+        }
+        if (res.statusCode !== 200) {
+          res.resume();
+          reject(new Error(`HTTP ${res.statusCode} for ${url}`));
+          return;
+        }
+        const chunks = [];
+        res.on('data', (c) => chunks.push(c));
+        res.on('end', () => resolve(Buffer.concat(chunks).toString('utf8')));
+        res.on('error', reject);
+      }
+    );
+    req.on('error', reject);
+    req.setTimeout(20000, () => req.destroy(new Error(`Request timed out for ${url}`)));
   });
+}
+
+// Retry fetchUrl up to maxAttempts times with a delay between attempts
+async function fetchWithRetry(url, maxAttempts = 3, delayMs = 3000) {
+  let lastErr;
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      return await fetchUrl(url);
+    } catch (err) {
+      lastErr = err;
+      if (attempt < maxAttempts) {
+        console.log(`  Attempt ${attempt} failed (${err.message}); retrying in ${delayMs / 1000}s…`);
+        await new Promise((r) => setTimeout(r, delayMs));
+      }
+    }
+  }
+  throw lastErr;
 }
 
 // ── CSV Parser (RFC 4180) ──────────────────────────────────────────────────
@@ -246,7 +271,15 @@ function updateEssaysHtml(essaysHtml, essaysByCat) {
 
 async function main() {
   console.log('Fetching CSV…');
-  const csvText = await fetchUrl(CSV_URL);
+  let csvText;
+  try {
+    csvText = await fetchWithRetry(CSV_URL);
+  } catch (err) {
+    console.warn(`\n⚠  CSV fetch failed after 3 attempts: ${err.message}`);
+    console.warn('   Previously generated essay files are unchanged.');
+    console.warn('   Fix the network issue or sheet permissions and redeploy.\n');
+    return;
+  }
 
   const rows = parseCSV(csvText);
   if (rows.length < 2) {
