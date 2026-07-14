@@ -257,7 +257,11 @@
       line-height: 1.5; color: rgba(252,250,240,0.62); margin: 0;
     }
     .carousel { position: relative; }
-    .viewport { overflow: hidden; }
+    .viewport {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+              mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    }
     .track { display: flex; align-items: stretch; transition: transform 460ms var(--ease-out); will-change: transform; }
     .slide {
       flex: 0 0 auto; width: min(720px, 80vw);
@@ -265,14 +269,6 @@
       transition: opacity 360ms var(--ease-out), transform 360ms var(--ease-out);
     }
     .slide:not(.is-active) { opacity: 0.32; transform: scale(0.94); }
-    .slide.is-prev {
-      -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
-              mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 100%);
-    }
-    .slide.is-next {
-      -webkit-mask-image: linear-gradient(90deg, #000 0%, #000 78%, transparent 100%);
-              mask-image: linear-gradient(90deg, #000 0%, #000 78%, transparent 100%);
-    }
     .quote-card {
       background: var(--bg-surface); border-radius: var(--r-lg); box-shadow: var(--shadow-lg);
       padding: clamp(36px, 4vw, 56px) clamp(32px, 3.6vw, 56px);
@@ -1187,7 +1183,7 @@
       const offset = vpW / 2 - center;
       track.style.transform = 'translateX(' + offset + 'px)';
       if (!animate) void track.offsetWidth;
-      slides.forEach((s, i) => { s.classList.toggle('is-active', i === pos); s.classList.toggle('is-prev', i === pos - 1); s.classList.toggle('is-next', i === pos + 1); });
+      slides.forEach((s, i) => s.classList.toggle('is-active', i === pos));
       dots.forEach((d, i) => d.classList.toggle('is-active', i === realIdx()));
       localStorage.setItem(KEY, String(realIdx()));
     }
