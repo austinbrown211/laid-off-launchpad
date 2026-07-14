@@ -328,7 +328,7 @@
       position: relative; z-index: 1; width: 100%; max-width: 736px;
       background: rgba(252,250,240,0.80);
       backdrop-filter: blur(18px) saturate(120%); -webkit-backdrop-filter: blur(18px) saturate(120%);
-      border: 1px solid rgba(252,250,240,0.55); border-radius: 28px;
+      border: 1px solid rgba(252,250,240,0.55); border-radius: 28px; overflow: hidden;
       box-shadow: 0 40px 90px -30px rgba(26,26,26,0.55), 0 12px 30px -16px rgba(26,26,26,0.35);
       padding: clamp(36px, 4vw, 56px) clamp(30px, 4vw, 60px) clamp(48px, 5vw, 68px); text-align: center;
     }
@@ -707,6 +707,7 @@
       .step-num { min-width: 30px; }
       .nav-logo { height: 44px; }
       .btn-primary { font-size: 12.5px; letter-spacing: 0.09em; padding: 14px 20px; }
+      .glass-cta .btn-primary { width: 100%; display: flex; white-space: normal; }
       .strip-card { padding: 24px 20px; }
     }
   </style>
