@@ -76,7 +76,7 @@
       background-color: var(--c-eerie-black);
       background-image: url("./images/Hero%20Image.jpg");
       background-size: cover; background-position: center top;
-      min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden;
       margin-bottom: 0; padding-bottom: 0; border-bottom: none;
     }
     .hero::before {
@@ -86,7 +86,7 @@
     }
     .hero-inner {
       position: relative; z-index: 1; width: 100%; max-width: 1180px; margin: 0 auto;
-      padding: 0 clamp(28px, 6vw, 96px);
+      padding: clamp(60px, 8vh, 100px) clamp(28px, 6vw, 96px) 0;
     }
     .hero-eyebrow {
       font-family: var(--font-sans); font-weight: 600; font-size: var(--fs-12);
@@ -95,13 +95,13 @@
     }
     .hero-headline {
       font-family: var(--font-serif); font-weight: 600;
-      font-size: clamp(2.8rem, 5.5vw, 5.2rem); line-height: 1.06;
+      font-size: clamp(2.8rem, 5.5vw, 3.8rem); line-height: 1.06;
       letter-spacing: -0.018em; color: var(--c-floral-white);
       margin: 0; max-width: 16ch; text-wrap: balance;
     }
     .hero-sub {
       font-family: var(--font-body); font-weight: 400;
-      font-size: clamp(1.05rem, 1.5vw, 1.3rem); line-height: 1.6;
+      font-size: clamp(1.05rem, 1.5vw, 1.15rem); line-height: 1.6;
       color: rgba(252,250,240,0.72); margin: clamp(18px, 2.4vw, 28px) 0 0;
       max-width: 44ch; text-wrap: pretty;
     }
@@ -109,6 +109,8 @@
       display: flex; align-items: center; flex-wrap: wrap;
       gap: 14px; margin-top: clamp(32px, 4vw, 46px);
     }
+    .hero-ctas .btn-primary,
+    .hero-ctas .btn-ghost { font-size: 12.5px; letter-spacing: 0.11em; padding: 14px 27px; }
 
     /* ============ Value Prop Strip ============ */
     .strip-wrap {
@@ -123,19 +125,19 @@
       box-shadow: 0 -16px 36px -20px rgba(26,26,26,0.30),
                   0 22px 48px -22px rgba(26,26,26,0.34),
                   0 4px 10px -6px rgba(26,26,26,0.10);
-      padding: 32px 48px;
+      padding: 20px 36px;
       display: flex; align-items: center;
     }
-    .vp-item { flex: 1; display: flex; align-items: center; gap: 18px; justify-content: center; }
+    .vp-item { flex: 1; display: flex; align-items: center; gap: 14px; justify-content: center; }
     .vp-check {
-      flex: 0 0 auto; width: 40px; height: 40px; border-radius: var(--r-pill);
+      flex: 0 0 auto; width: 32px; height: 32px; border-radius: var(--r-pill);
       background: var(--c-sinopia); display: grid; place-items: center;
       box-shadow: 0 4px 10px -4px rgba(199,62,29,0.55);
     }
-    .vp-check svg { width: 21px; height: 21px; display: block; }
+    .vp-check svg { width: 17px; height: 17px; display: block; }
     .vp-text {
       font-family: var(--font-sans); font-weight: 700;
-      font-size: clamp(1.1rem, 1.45vw, 1.4rem); letter-spacing: -0.01em;
+      font-size: clamp(0.95rem, 1.2vw, 1.15rem); letter-spacing: -0.01em;
       line-height: 1.15; color: var(--fg-ink); white-space: nowrap;
     }
     .vp-divider { flex: 0 0 1px; align-self: stretch; margin: 6px 0; background: var(--line-soft); }
