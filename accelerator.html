@@ -24,7 +24,7 @@
     .hero-headline {
       font-family: 'EB Garamond', Georgia, serif;
       font-weight: 600;
-      font-size: 52px;
+      font-size: clamp(2.25rem, 5vw, 3.25rem);
       line-height: 1.1;
       letter-spacing: -0.015em;
       color: #1A1A1A;
@@ -67,7 +67,7 @@
     .testimonials-headline {
       font-family: 'EB Garamond', Georgia, serif;
       font-weight: 600;
-      font-size: 36px;
+      font-size: clamp(1.5rem, 4.5vw, 2.25rem);
       line-height: 1.2;
       color: #1A1A1A;
       text-align: center;
@@ -86,7 +86,7 @@
       font-family: 'EB Garamond', Georgia, serif;
       font-style: normal;
       font-weight: 400;
-      font-size: 24px;
+      font-size: clamp(1.15rem, 3vw, 1.5rem);
       line-height: 1.55;
       color: #1A1A1A;
       margin: 0;
@@ -114,8 +114,9 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 768px) {
-      .hero-headline { font-size: 36px; }
+    @media (max-width: 480px) {
+      .hero-section { padding: 48px 24px; }
+      .testimonials-section { padding: 48px 24px; }
     }
   </style>
 </head>
