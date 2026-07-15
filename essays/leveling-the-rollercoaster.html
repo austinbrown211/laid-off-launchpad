@@ -35,6 +35,13 @@
     }
     .nav-links a:hover, .nav-links a.is-active { color: var(--c-floral-white); border-bottom-color: var(--c-sinopia); }
 
+    /* Mobile hamburger — hidden above 900px */
+    .nav-hamburger { display: none; }
+    .nav-hamburger .icon-close { display: none; }
+    .nav-hamburger.is-open .icon-hamburger { display: none; }
+    .nav-hamburger.is-open .icon-close { display: block; }
+    .nav-mobile { display: none; }
+
     .btn-primary {
       display: inline-flex; align-items: center; justify-content: center;
       font-family: var(--font-sans); font-weight: 700;
@@ -149,9 +156,42 @@
 
     @media (max-width: 900px) {
       .nav-links { display: none; }
+      .nav-logo { height: 56px; }
+      .nav-right > .btn-primary { display: none; }
+      .nav-hamburger {
+        display: flex; align-items: center; justify-content: center;
+        background: none; border: none; cursor: pointer;
+        padding: 8px; color: var(--c-floral-white); flex-shrink: 0;
+      }
+      .nav-mobile {
+        display: block;
+        position: absolute; top: 100%; left: 0; right: 0;
+        background: rgba(26,26,26,0.96);
+        padding: 8px clamp(28px, 5vw, 48px) 36px;
+        border-top: 1px solid rgba(252,250,240,0.10);
+        box-shadow: 0 16px 40px -8px rgba(26,26,26,0.55);
+        opacity: 0; pointer-events: none; transform: translateY(-6px);
+        transition: opacity 220ms var(--ease-out), transform 220ms var(--ease-out);
+      }
+      .nav-mobile.is-open { opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .nav-mobile-links a {
+        display: block;
+        font-family: var(--font-sans); font-weight: 500; font-size: 17px;
+        color: rgba(252,250,240,0.82); text-decoration: none;
+        padding: 14px 0; border-bottom: 1px solid rgba(252,250,240,0.07);
+        transition: color var(--dur-fast) var(--ease-out);
+      }
+      .nav-mobile-links a:last-child { border-bottom: none; }
+      .nav-mobile-links a:hover { color: var(--c-floral-white); }
+      .nav-mobile-cta { display: flex; width: 100%; margin-top: 24px; }
       .wrap { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
-      .sidebar { position: static; }
+      .sidebar { display: none; }
       .footer-main { grid-template-columns: 1fr; gap: clamp(36px, 8vw, 52px); }
+    }
+    @media (max-width: 480px) {
+      .nav-logo { height: 44px; }
+      .nav-mobile-cta { width: 100%; display: flex; white-space: normal; }
+      .end-cta .btn-primary { width: 100%; display: flex; white-space: normal; }
     }
   
     .essay-body ul { margin: 0 0 1.45em 1.4em; padding: 0; }
@@ -175,7 +215,19 @@
         <a class="is-active" href="../essays.html">Essays</a>
         <a href="../accelerator.html">The Accelerator</a>
       </div>
-      <a class="btn-primary btn-sm" href="#CALENDLY_PLACEHOLDER">Book Your Job Search Strategy Call</a>
+      <a class="btn-primary btn-sm" href="../accelerator.html">Book Your Job Search Strategy Call</a>
+      <button class="nav-hamburger" id="navHamburger" aria-label="Open navigation menu" aria-expanded="false">
+        <svg class="icon-hamburger" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <div class="nav-mobile-links">
+        <a href="../about.html">About</a>
+        <a class="is-active" href="../essays.html">Essays</a>
+        <a href="../accelerator.html">The Accelerator</a>
+      </div>
+      <a href="../accelerator.html" class="btn-primary nav-mobile-cta">Book Your Job Search Strategy Call</a>
     </div>
   </nav>
 
@@ -247,7 +299,7 @@
         <p class="end-eyebrow">Enjoyed this essay?</p>
         <h2 class="end-headline">Here&rsquo;s a Good Next Step.</h2>
         <p class="end-body">Book a free Job Search Strategy Call &mdash; a focused 30-minute conversation about where you are and what would actually move the needle.</p>
-        <a class="btn-primary btn-md" href="#CALENDLY_PLACEHOLDER">Book Your Job Search Strategy Call</a>
+        <a class="btn-primary btn-md" href="../accelerator.html">Book Your Job Search Strategy Call</a>
       </aside>
     </main>
 
@@ -263,7 +315,7 @@
         <p class="side-eyebrow">Let&rsquo;s talk</p>
         <h2 class="side-headline">Ready to talk it through?</h2>
         <p class="side-body">Book a free 30-minute strategy call &mdash; no pitch, just clarity.</p>
-        <a class="btn-primary btn-md btn-block" href="#CALENDLY_PLACEHOLDER">Book a Free Call</a>
+        <a class="btn-primary btn-md btn-block" href="../accelerator.html">Book a Free Call</a>
       </div>
     </aside>
 
@@ -286,7 +338,7 @@
           <a href="../about.html">About</a>
           <a href="../essays.html">Essays</a>
           <a href="../accelerator.html">The Accelerator</a>
-          <a href="#CALENDLY_PLACEHOLDER">Book Your Job Search Strategy Call</a>
+          <a href="../accelerator.html">Book Your Job Search Strategy Call</a>
           <a href="../privacy.html">Privacy Policy &amp; Terms of Use</a>
         </div>
       </nav>
@@ -306,6 +358,36 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest"></script>
-  <script>lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });</script>
+  <script>
+    lucide.createIcons({ attrs: { 'stroke-width': 1.75 } });
+    /* ---- Mobile navigation ---- */
+    (function() {
+      var hamburger = document.getElementById('navHamburger');
+      var mobilePanel = document.getElementById('navMobile');
+      if (!hamburger || !mobilePanel) return;
+      function openMenu() {
+        hamburger.classList.add('is-open');
+        mobilePanel.classList.add('is-open');
+        hamburger.setAttribute('aria-expanded', 'true');
+        hamburger.setAttribute('aria-label', 'Close navigation menu');
+      }
+      function closeMenu() {
+        hamburger.classList.remove('is-open');
+        mobilePanel.classList.remove('is-open');
+        hamburger.setAttribute('aria-expanded', 'false');
+        hamburger.setAttribute('aria-label', 'Open navigation menu');
+      }
+      hamburger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        mobilePanel.classList.contains('is-open') ? closeMenu() : openMenu();
+      });
+      document.addEventListener('click', function(e) {
+        if (mobilePanel.classList.contains('is-open') && !e.target.closest('.nav')) closeMenu();
+      });
+      mobilePanel.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', closeMenu);
+      });
+    }());
+  </script>
 </body>
 </html>
