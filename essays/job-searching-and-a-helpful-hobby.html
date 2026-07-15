@@ -151,6 +151,7 @@
     .f-submit { grid-column: 1 / -1; justify-self: start; margin-top: 4px; font-family: var(--font-sans); font-weight: 700; font-size: 14px; letter-spacing: 0.13em; text-transform: uppercase; line-height: 1.1; color: var(--c-floral-white); background: var(--c-sinopia); border: 1.5px solid transparent; border-radius: var(--r-pill); padding: 15px 38px; cursor: pointer; transition: background var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out); }
     .f-submit:hover { background: var(--c-sinopia-600); }
     .f-submit:active { transform: translateY(1px); }
+    .f-success { font-family: var(--font-sans); font-size: var(--fs-16); color: var(--c-warm-200); margin: 0; line-height: 1.6; }
     .f-bottom { border-top: 1px solid rgba(252,250,240,0.12); max-width: 1180px; margin: 0 auto; padding: clamp(22px, 2.6vw, 30px) clamp(28px, 6vw, 80px); }
     .f-copy { font-family: var(--font-sans); font-weight: 400; font-size: var(--fs-14); color: var(--c-warm-400); margin: 0; text-align: center; }
 
@@ -324,10 +325,11 @@
       </nav>
       <div class="f-contact">
         <p class="f-label">Contact Us</p>
-        <form class="f-form" onsubmit="return false;">
-          <input class="full" type="text" placeholder="Full name" aria-label="Full name" autocomplete="name">
-          <input class="full" type="email" placeholder="Email" aria-label="Email" autocomplete="email">
-          <textarea class="full" placeholder="Message" aria-label="Message"></textarea>
+        <form class="f-form" name="contact" method="POST" data-netlify="true">
+          <input type="hidden" name="form-name" value="contact" />
+          <input class="full" type="text" name="name" placeholder="Full name" aria-label="Full name" autocomplete="name">
+          <input class="full" type="email" name="email" placeholder="Email" aria-label="Email" autocomplete="email">
+          <textarea class="full" name="message" placeholder="Message" aria-label="Message"></textarea>
           <button class="f-submit" type="submit">Submit</button>
         </form>
       </div>
@@ -366,6 +368,28 @@
       });
       mobilePanel.querySelectorAll('a').forEach(function(link) {
         link.addEventListener('click', closeMenu);
+      });
+    }());
+    (function() {
+      var form = document.querySelector('.f-form');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(new FormData(form)).toString()
+        }).then(function() {
+          var msg = document.createElement('p');
+          msg.className = 'f-success';
+          msg.textContent = 'Thanks — I’ll get back to you soon.';
+          form.parentNode.replaceChild(msg, form);
+        }).catch(function() {
+          var msg = document.createElement('p');
+          msg.className = 'f-success';
+          msg.textContent = 'Something went wrong — please try again.';
+          form.parentNode.replaceChild(msg, form);
+        });
       });
     }());
   </script>
