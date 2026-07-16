@@ -239,10 +239,10 @@ function generateEssayHtml(template, { title, category, bodyHtml }) {
     `<h1 class="essay-title">${htmlEncode(title)}</h1>`
   );
 
-  // essay body content
+  // essay body content — use a function to avoid $ backreference expansion in bodyHtml
   html = html.replace(
     /(<div class="essay-body">)[\s\S]*?(<\/div>\s*\n\s*<!-- End-of-essay)/,
-    `$1\n${bodyHtml}      $2`
+    (_, open, close) => `${open}\n${bodyHtml}      ${close}`
   );
 
   return html;
